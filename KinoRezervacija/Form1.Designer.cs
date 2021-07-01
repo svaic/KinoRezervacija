@@ -107,6 +107,7 @@ namespace KinoRezervacija
             this.FilterCB.Name = "FilterCB";
             this.FilterCB.Size = new System.Drawing.Size(150, 23);
             this.FilterCB.TabIndex = 5;
+            this.FilterCB.SelectedIndexChanged += new System.EventHandler(this.FilterChanged);
             // 
             // label2
             // 

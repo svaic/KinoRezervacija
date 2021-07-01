@@ -54,10 +54,10 @@ namespace KinoRezervacija
         };
 
         public static Comparison<Movie> DefaultComparator = Comparator.CompareByName;
-        public Movie(string name, string author, int price, Genre genre)
+        public Movie(string name, string regisseur, int price, Genre genre)
         {
             Name = name;
-            Regisseur = author;
+            Regisseur = regisseur;
             Price = price;
             Genre = genre;
         }
@@ -67,9 +67,9 @@ namespace KinoRezervacija
             return Name + "\n" + Regisseur + "\n" + Price + "\n" + Genre;
         }
 
-        public int CompareTo(Movie obj)
+        public int CompareTo(Movie movie)
         {
-            return DefaultComparator.Invoke(this, obj);
+            return DefaultComparator.Invoke(this, movie);
         }
 
     }

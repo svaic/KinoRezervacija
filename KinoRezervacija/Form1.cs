@@ -19,6 +19,10 @@ namespace KinoRezervacija
 
             MovieLB.DataSource = theater.Halls;
             SortCB.DataSource = Movie.SortType.Keys.ToList();
+
+            var e = Enum.GetNames(typeof(Genre)).ToList();
+            e.Insert(0, "None");
+            FilterCB.DataSource = e;
             RefreshDetails();
         }
 
@@ -68,6 +72,22 @@ namespace KinoRezervacija
         private void AscendCheckB_CheckStateChanged(object sender, EventArgs e)
         {
             RefreshListBox();
+        }
+
+        private void FilterChanged(object sender, EventArgs e)
+        {
+            string filter = (string)FilterCB.SelectedItem;
+            if (filter == "None")
+            {
+                theater.ClearFilter();
+                RefreshListBox();
+                return;
+            }
+
+            theater.FilterBy((Genre)Enum.Parse(typeof(Genre), filter));
+            RefreshListBox();
+
+
         }
     }
 }
