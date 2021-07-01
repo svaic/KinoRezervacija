@@ -18,15 +18,13 @@ namespace KinoRezervacija
             InitializeComponent();
 
             MovieLB.DataSource = theater.Halls;
-            SortCB.DataSource = Enum.GetValues(typeof(SortType));
+            SortCB.DataSource = Movie.SortType.Keys.ToList();
             RefreshDetails();
-
         }
 
         private void MovieLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshDetails();
-
         }
 
         private void RefreshDetails()
@@ -61,15 +59,14 @@ namespace KinoRezervacija
 
         private void RefreshListBox()
         {
-            SortType type = (SortType)SortCB.SelectedItem;
-            theater.SetDefaultCompareBy(type);
+            string type = (string)SortCB.SelectedItem;
+            theater.CompareBy(type,AscendCheckB.Checked);
             //theater.Halls.ResetBindings();
             MovieLB.DataSource = theater.Halls;
         }
 
         private void AscendCheckB_CheckStateChanged(object sender, EventArgs e)
         {
-            Movie.Asc = !Movie.Asc;
             RefreshListBox();
         }
     }

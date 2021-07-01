@@ -16,15 +16,6 @@ namespace KinoRezervacija
         Small
     }
 
-    enum SortType
-    {
-        Title,
-        Genre,
-        Price,
-        Director
-    }
-
-
     class Theater
     {
         public BindingList<Hall> Halls { get; set; }
@@ -40,7 +31,7 @@ namespace KinoRezervacija
             new Movie("Harry Potter and the Deadly Hollows Part 2", "Marvel", 350, Genre.Fantasy)
         };
 
-        public static Comparison<Movie> DefaultComparator = Movie.CompareByName;
+        public static Comparison<Movie> DefaultComparator = Movie.Comparator.CompareByName;
 
         public Theater(string Name)
         {
@@ -48,26 +39,19 @@ namespace KinoRezervacija
             BuildHalls(10);
         }
 
-        public void SetDefaultCompareBy(SortType Type)
-        {
-            //if (Type == SortType.Price) DefaultComparator = Movie.CompareByPrice;
-            //if (Type == SortType.Genre) DefaultComparator = Movie.CompareByGenre;
-            //if (Type == SortType.Title) DefaultComparator = Movie.CompareByName;
-            Movie.SortBy = Type;
-            Halls = new BindingList<Hall> (Halls.OrderBy(x=>x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying).ToList());
-        }
-
         public void BuildHalls(int hallNumber)
         {
             Halls = new BindingList<Hall>();
             List<Movie> BestMovies = movies.OrderByDescending(i => i.Price).Take(hallNumber).ToList();
+            
+            HallType hallType = HallType.Small;
 
             BestMovies.Sort(DefaultComparator);
 
-            for (int i = 1; i <= hallNumber; i++)
+            for (int i = 0; i < hallNumber; i++)
             {
-                if (BestMovies.Count > i - 1) BuildHall(i, BestMovies[i - 1], HallType.Small);
-                else BuildHall(i, null, HallType.Small);
+                if (BestMovies.Count > i) BuildHall(i + 1, BestMovies[i], hallType);
+                else BuildHall(i, null, hallType);
             }
         }
 
@@ -76,6 +60,19 @@ namespace KinoRezervacija
             if (hallType == HallType.Small) Halls.Add(new Hall(number, moviePlaying, 20));
             if (hallType == HallType.Medium) Halls.Add(new Hall(number, moviePlaying, 35));
             if (hallType == HallType.Large) Halls.Add(new Hall(number, moviePlaying, 50));
+        }
+        public void CompareBy(string Type, bool Ascending)
+        {
+            //Halls = new BindingList<Hall> (Halls.OrderBy(x=>x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying).ToList());
+            if (Ascending)
+                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ToList());
+            else
+                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenByDescending(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ToList());
+        }
+
+        public void FilterBy(string Type)
+        {
+
         }
     }
 }
