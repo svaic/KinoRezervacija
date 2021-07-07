@@ -1,7 +1,7 @@
 ﻿
 namespace KinoRezervacija
 {
-    partial class Form1
+    partial class TheatherForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,7 +33,7 @@ namespace KinoRezervacija
             this.MovieLB = new System.Windows.Forms.ListBox();
             this.BuyTicketBtn = new System.Windows.Forms.Button();
             this.MovieDetailsRTX = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.CinemaNameLB = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.FilterCB = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,15 +81,15 @@ namespace KinoRezervacija
             this.MovieDetailsRTX.TabIndex = 4;
             this.MovieDetailsRTX.Text = "";
             // 
-            // label1
+            // CinemaNameLB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(224, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 37);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Cinema";
+            this.CinemaNameLB.AutoSize = true;
+            this.CinemaNameLB.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CinemaNameLB.Location = new System.Drawing.Point(207, 9);
+            this.CinemaNameLB.Name = "CinemaNameLB";
+            this.CinemaNameLB.Size = new System.Drawing.Size(107, 37);
+            this.CinemaNameLB.TabIndex = 6;
+            this.CinemaNameLB.Text = "Cinema";
             // 
             // button2
             // 
@@ -107,7 +107,7 @@ namespace KinoRezervacija
             this.FilterCB.Name = "FilterCB";
             this.FilterCB.Size = new System.Drawing.Size(150, 23);
             this.FilterCB.TabIndex = 5;
-            this.FilterCB.SelectedIndexChanged += new System.EventHandler(this.FilterChanged);
+            this.FilterCB.SelectionChangeCommitted += new System.EventHandler(this.FilterChanged);
             // 
             // label2
             // 
@@ -168,7 +168,7 @@ namespace KinoRezervacija
             this.Controls.Add(this.SortCB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CinemaNameLB);
             this.Controls.Add(this.FilterCB);
             this.Controls.Add(this.MovieDetailsRTX);
             this.Controls.Add(this.BuyTicketBtn);
@@ -187,7 +187,7 @@ namespace KinoRezervacija
         private System.Windows.Forms.ListBox MovieLB;
         private System.Windows.Forms.Button BuyTicketBtn;
         private System.Windows.Forms.RichTextBox MovieDetailsRTX;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CinemaNameLB;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox FilterCB;
         private System.Windows.Forms.Label label2;

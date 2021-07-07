@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
-    public partial class Form1 : Form
+    public partial class TheatherForm : Form
     {
         Theater theater = new Theater("Cineplexx");
-        public Form1()
+        public TheatherForm()
         {
             InitializeComponent();
+
+            CinemaNameLB.Text = theater.Name;
 
             MovieLB.DataSource = theater.Halls;
             SortCB.DataSource = Movie.SortType.Keys.ToList();
@@ -23,6 +19,7 @@ namespace KinoRezervacija
             var e = Enum.GetNames(typeof(Genre)).ToList();
             e.Insert(0, "None");
             FilterCB.DataSource = e;
+
             RefreshDetails();
         }
 
@@ -42,13 +39,25 @@ namespace KinoRezervacija
             {
                 theater.Halls.ResetBindings();
             }
+
         }
 
         private void BuyTicketBtn_Click(object sender, EventArgs e)
         {
             Hall selectedHall = (Hall)MovieLB.SelectedItem;
-            selectedHall.BookSeat();
-            RefreshDetails();
+            if (!selectedHall.HasMoviePlaying()) return;
+            
+            //selectedHall.BookSeat();
+            //RefreshDetails();
+            
+            HallForm hallForm = new HallForm(selectedHall);
+            hallForm.FormClosed += HallForm_Closed;
+            hallForm.Show();
+        }
+
+        private void HallForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            RefreshListBox();
         }
 
         private void addMovieBtn_Click(object sender, EventArgs e)
@@ -64,9 +73,13 @@ namespace KinoRezervacija
         private void RefreshListBox()
         {
             string type = (string)SortCB.SelectedItem;
+            //int selectedIndex = MovieLB.SelectedIndex;
+
             theater.CompareBy(type,AscendCheckB.Checked);
             //theater.Halls.ResetBindings();
             MovieLB.DataSource = theater.Halls;
+
+            //MovieLB.SelectedIndex = selectedIndex;
         }
 
         private void AscendCheckB_CheckStateChanged(object sender, EventArgs e)
@@ -86,8 +99,6 @@ namespace KinoRezervacija
 
             theater.FilterBy((Genre)Enum.Parse(typeof(Genre), filter));
             RefreshListBox();
-
-
         }
     }
 }

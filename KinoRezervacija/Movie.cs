@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace KinoRezervacija
 {
 
-    enum Genre
+    public enum Genre
     {
         Action,
         Comedy,
@@ -17,7 +17,7 @@ namespace KinoRezervacija
         Fantasy
     }
 
-    class Movie : IComparable<Movie>
+    public class Movie : IComparable<Movie>
     {
         public int Id { get; set; }
         public string Name { get; set; }

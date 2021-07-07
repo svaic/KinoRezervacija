@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KinoRezervacija
 {
-    class Hall : IComparable<Hall>
+    public class Hall : IComparable<Hall>
     {
         public Movie CurrentMoviePlaying { get; set; }
         public int Size { get; set; }
@@ -45,9 +45,14 @@ namespace KinoRezervacija
             CurrentMoviePlaying = movie;
         }
 
+        public bool HasMoviePlaying()
+        {
+            return CurrentMoviePlaying != null;
+        }
+
         public override string ToString()
         {
-            if (CurrentMoviePlaying == null)
+            if (!HasMoviePlaying())
                 return HallName + " | No movie playing in this hall right now";
 
             return HallName + " | " + CurrentMoviePlaying.FullTitle + " " + (GetRemainingSeats() == 0? " | Sold Out" : "");

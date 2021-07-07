@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 
 namespace KinoRezervacija
 {
-
-
     enum HallType
     {
         Large,
@@ -46,7 +44,7 @@ namespace KinoRezervacija
             _halls = new BindingList<Hall>();
             List<Movie> BestMovies = movies.Take(hallNumber).ToList();
             
-            HallType hallType = HallType.Small;
+            HallType hallType = HallType.Large;
 
             BestMovies.Sort(DefaultComparator);
 
