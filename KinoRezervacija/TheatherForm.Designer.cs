@@ -41,6 +41,7 @@ namespace KinoRezervacija
             this.label3 = new System.Windows.Forms.Label();
             this.AscendCheckB = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addMovieBtn
@@ -157,11 +158,22 @@ namespace KinoRezervacija
             this.label4.TabIndex = 12;
             this.label4.Text = "Ascend";
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(258, 363);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 29);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Bill -still working";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // TheatherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 402);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.AscendCheckB);
             this.Controls.Add(this.label3);
@@ -174,7 +186,7 @@ namespace KinoRezervacija
             this.Controls.Add(this.BuyTicketBtn);
             this.Controls.Add(this.MovieLB);
             this.Controls.Add(this.addMovieBtn);
-            this.Name = "Form1";
+            this.Name = "TheatherForm";
             this.Text = "W";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,6 +209,7 @@ namespace KinoRezervacija
         private System.Windows.Forms.Button A;
         private System.Windows.Forms.CheckBox AscendCheckB;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
 

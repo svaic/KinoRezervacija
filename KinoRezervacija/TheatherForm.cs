@@ -100,5 +100,11 @@ namespace KinoRezervacija
             theater.FilterBy((Genre)Enum.Parse(typeof(Genre), filter));
             RefreshListBox();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BillForm billForm = new BillForm();
+            billForm.Show();
+        }
     }
 }
