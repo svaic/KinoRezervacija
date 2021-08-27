@@ -22,19 +22,6 @@ namespace KinoRezervacija
         public string Name { get; set; }
         public List<Movie> Movies { get; set; }
 
-        
-
-        //static List<Movie> movies = new List<Movie>
-        //{
-        //    new Movie("Marvel Avengers", "Marvel", 350, Genre.Action),
-        //    new Movie("Thor the Dark World", "Marvel", 350, Genre.Action),
-        //    new Movie("Thor Love and Thunder", "Marvel", 200, Genre.Action),
-        //    new Movie("Captain Amerika The Winter Soldier", "Marvel", 200, Genre.Action),
-        //    new Movie("Harry Potter and the Deadly Hollows Part 1", "Marvel", 200, Genre.Fantasy),
-        //    new Movie("Harry Potter and the Deadly Hollows Part 2", "Marvel", 350, Genre.Fantasy),
-        //    new Movie("The Hangover", "Todd Phillips", 150, Genre.Comedy)
-        //};
-
         public static Comparison<Movie> DefaultComparator = Movie.Comparator.CompareByName;
 
         public Theater(string Name)
@@ -47,12 +34,11 @@ namespace KinoRezervacija
         public void BuildHalls(int hallNumber)
         {
             _halls = new BindingList<Hall>();
-            //List<Movie> BestMovies = movies.Take(hallNumber).ToList();
+            
             
             HallType hallType = HallType.Large;
 
-            //BestMovies.Sort(DefaultComparator);
-
+            
             for (int i = 0; i < hallNumber; i++)
             {
                 if (i < 3)
@@ -60,22 +46,30 @@ namespace KinoRezervacija
                 else if (i < 6)
                     hallType = HallType.Medium;
                 BuildHall(i+1, hallType);
-                //if (BestMovies.Count > i) BuildHall(i + 1, BestMovies[i], hallType);
-                //else BuildHall(i, null, hallType);
             }
 
         }
 
         private void BuildHall(int number, HallType hallType)
         {
-            if (hallType == HallType.Small) _halls.Add(new Hall(number, null, 20));
-            if (hallType == HallType.Medium) _halls.Add(new Hall(number, null, 35));
-            if (hallType == HallType.Large) _halls.Add(new Hall(number, null, 50));
+            Movie movie = null;
+            foreach (Movie m in Movies)
+            {
+                if (m.HallNumber == number) 
+                {
+                    movie = m;
+                    break;
+                }
+            }
+            if (hallType == HallType.Small) _halls.Add(new Hall(number, movie, 20));
+            if (hallType == HallType.Medium) _halls.Add(new Hall(number, movie, 35));
+            if (hallType == HallType.Large) _halls.Add(new Hall(number, movie, 50));
             Halls = _halls;
         }
 
         public void AddMovieToHall(Movie movie)
         {
+            Movies.Add(movie);
             for (int i = 0; i < 10; i++)
             {
                 if (i + 1 == movie.HallNumber)
@@ -88,6 +82,7 @@ namespace KinoRezervacija
 
         public void RemoveMovie(int hallNumber)
         {
+            Movies.Remove(_halls.ElementAt(hallNumber - 1).CurrentMoviePlaying);
             _halls.ElementAt(hallNumber - 1).CurrentMoviePlaying = null;
         }
         public void CompareBy(string Type, bool Ascending)

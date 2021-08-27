@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace KinoRezervacija
 {
@@ -25,7 +26,7 @@ namespace KinoRezervacija
             FilterCB.DataSource = GenreEnums;
 
             bill = new Bill();
-
+            RefreshListBox();
             RefreshDetails();
         }
 
@@ -173,6 +174,23 @@ namespace KinoRezervacija
             }
         }
 
-        
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                open(ofd.FileName);
+            }
+        }
+
+        private void open(string path)
+        {
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                theater = (Theater)formatter.Deserialize(fs);
+            }
+            RefreshListBox();
+        }
     }
 }
