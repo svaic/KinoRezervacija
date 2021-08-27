@@ -85,13 +85,10 @@ namespace KinoRezervacija
             }
         }
 
-        //private void BuildHall(int number, Movie moviePlaying, HallType hallType)
-        //{
-        //    if (hallType == HallType.Small) _halls.Add(new Hall(number, moviePlaying, 20));
-        //    if (hallType == HallType.Medium) _halls.Add(new Hall(number, moviePlaying, 35));
-        //    if (hallType == HallType.Large) _halls.Add(new Hall(number, moviePlaying, 50));
-        //    Halls = _halls;
-        //}
+        public void RemoveMovie(int hallNumber)
+        {
+            _halls.ElementAt(hallNumber - 1).CurrentMoviePlaying = null;
+        }
         public void CompareBy(string Type, bool Ascending)
         {
             //Halls = new BindingList<Hall> (Halls.OrderBy(x=>x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying).ToList());

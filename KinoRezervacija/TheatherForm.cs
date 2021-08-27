@@ -11,7 +11,6 @@ namespace KinoRezervacija
         public TheatherForm()
         {
             InitializeComponent();
-
             CinemaNameLB.Text = theater.Name;
 
             MovieLB.DataSource = theater.Halls;
@@ -29,6 +28,8 @@ namespace KinoRezervacija
         private void MovieLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshDetails();
+            if (MovieLB.SelectedIndex != -1)
+                btnRemove.Enabled = true;
         }
 
         private void RefreshDetails()
@@ -125,9 +126,22 @@ namespace KinoRezervacija
             MenuForm MenuForm = (MenuForm)sender;
             bill.Menus = MenuForm.Menus;
         }
+
         private void ShowBillBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show(bill.ToString());
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            string text = "Are you sure you want to remove the movie in " + MovieLB.SelectedItem.ToString().Split()[0] + MovieLB.SelectedItem.ToString().Split()[1] + "?";
+            DialogResult result = MessageBox.Show(text, "Remove Movie?", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+                theater.RemoveMovie(Convert.ToInt32(MovieLB.SelectedItem.ToString().Split()[1]));
+            }
+            RefreshListBox();
+            RefreshDetails();
         }
     }
 }
