@@ -67,7 +67,14 @@ namespace KinoRezervacija
 
         private void addMovieBtn_Click(object sender, EventArgs e)
         {
-           
+            AddMovie form = new AddMovie(theater._halls);
+            DialogResult result = form.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                theater.Movies.Add(form.movie);
+                theater.AddMovieToHall(form.movie);
+                RefreshListBox();
+            }
         }
 
         private void SortCB_SelectedIndexChanged(object sender, EventArgs e)
