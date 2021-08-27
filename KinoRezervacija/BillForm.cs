@@ -31,7 +31,7 @@ namespace KinoRezervacija
             IExtra Ketchup = new FoodAddition("Ketchup",10, Popcorn);
             IExtra Senf = new FoodAddition("Senf",15, Ketchup);
 
-            MenuCB.DataSource = new Menu[] { new DefaultMenu(), new LoveMenu() , new FriendMenu() };
+            MenuCB.DataSource = new Menu[] { new DefaultMenu(), new LoveMenu() , new NoMenu() };
             FoodCB.DataSource = Foods;
             DrinkCB.DataSource = Drinks;
 
@@ -72,15 +72,26 @@ namespace KinoRezervacija
 
             if (CurrentMenu.IsFull())
             {
-                if (MessageBox.Show(CurrentMenu.GetDescription(),"add current menu to bill?", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    Bill.Add(CurrentMenu);
-                    BillTB.Text = String.Join("\n", Bill.Select(x => x.GetDescription()).ToList()) + "\nTotal price: " + Bill.Select(x=>x.GetPrice()).Aggregate((x,y)=> x+y);
-                }
-                Type objectType = MenuCB.SelectedItem.GetType();
-                CurrentMenu = (Menu)Activator.CreateInstance(objectType);
-                RefreshLabels();
+                MoveMenuToBill();
             }
+        }
+
+        private void MoveMenuToBill()
+        {
+
+            if (MessageBox.Show(CurrentMenu.GetDescription(), "add current menu to bill?", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                Bill.Add(CurrentMenu);
+                BillTB.Text = String.Join("\n", Bill.Select(x => x.GetDescription()).ToList()) + "\nTotal price: " + Bill.Select(x => x.GetPrice()).Aggregate((x, y) => x + y);
+            }
+            CreateNewMenu();
+            RefreshLabels();
+        }
+
+        private void CreateNewMenu()
+        {
+            Type objectType = MenuCB.SelectedItem.GetType();
+            CurrentMenu = (Menu)Activator.CreateInstance(objectType);
         }
 
         private void AddFoodBtn_Click(object sender, EventArgs e)
@@ -124,6 +135,16 @@ namespace KinoRezervacija
             {
                 control.Checked = false;
             }
+        }
+
+        private void MoveToBillBtn_Click(object sender, EventArgs e)
+        {
+            MoveMenuToBill();
+        }
+
+        private void ClearMenuBtn_Click(object sender, EventArgs e)
+        {
+            CreateNewMenu();
         }
     }
 }

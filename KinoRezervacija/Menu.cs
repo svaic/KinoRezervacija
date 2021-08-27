@@ -14,6 +14,8 @@ namespace KinoRezervacija
         public int FoodCapacity;
         public int DrinkCapacity;
 
+        public bool CanBeFull;
+
         protected decimal FoodDiscount = 1;
         protected decimal DrinkDiscount = 1;
         public int GetPrice()
@@ -50,7 +52,6 @@ namespace KinoRezervacija
             Drink.Add(food);
             return DrinkSelectionLeft();
         }
-
 
         public bool IsFull()
         {
@@ -156,6 +157,7 @@ namespace KinoRezervacija
         {
             this.Food = new List<IExtra>();
             this.Drink = new List<IExtra>();
+            this.CanBeFull = true;
             this.FoodCapacity = 1;
             this.DrinkCapacity = 1;
             this.FoodDiscount = (decimal)0.90;
@@ -169,6 +171,7 @@ namespace KinoRezervacija
         {
             this.Food = new List<IExtra>();
             this.Drink = new List<IExtra>();
+            this.CanBeFull = true;
             this.FoodCapacity = 1;
             this.DrinkCapacity = 2;
             this.FoodDiscount = (decimal)0.95;
@@ -176,16 +179,17 @@ namespace KinoRezervacija
         }
     }
 
-    class FriendMenu : Menu
+    class NoMenu : Menu
     {
-        public FriendMenu()
+        public NoMenu()
         {
             this.Food = new List<IExtra>();
             this.Drink = new List<IExtra>();
-            this.FoodCapacity = 5;
-            this.DrinkCapacity = 5;
-            this.FoodDiscount = (decimal)0.6;
-            this.DrinkDiscount = (decimal)0.6;
+            this.CanBeFull = false;
+            this.FoodCapacity = 10;
+            this.DrinkCapacity = 10;
+            this.FoodDiscount = (decimal)1;
+            this.DrinkDiscount = (decimal)1;
         }
     }
 }

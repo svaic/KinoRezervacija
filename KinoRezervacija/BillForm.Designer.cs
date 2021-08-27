@@ -49,6 +49,8 @@ namespace KinoRezervacija
             this.DrinkLB = new System.Windows.Forms.Label();
             this.BillTB = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.MoveToBillBtn = new System.Windows.Forms.Button();
+            this.ClearMenuBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -104,16 +106,16 @@ namespace KinoRezervacija
             // 
             // SelectedMenuTB
             // 
-            this.SelectedMenuTB.Location = new System.Drawing.Point(12, 293);
+            this.SelectedMenuTB.Location = new System.Drawing.Point(15, 265);
             this.SelectedMenuTB.Name = "SelectedMenuTB";
-            this.SelectedMenuTB.Size = new System.Drawing.Size(226, 128);
+            this.SelectedMenuTB.Size = new System.Drawing.Size(210, 156);
             this.SelectedMenuTB.TabIndex = 3;
             this.SelectedMenuTB.Text = "";
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 263);
+            this.label4.Location = new System.Drawing.Point(12, 235);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(226, 27);
             this.label4.TabIndex = 4;
@@ -225,27 +227,50 @@ namespace KinoRezervacija
             // 
             // BillTB
             // 
-            this.BillTB.Location = new System.Drawing.Point(251, 293);
+            this.BillTB.Location = new System.Drawing.Point(261, 265);
             this.BillTB.Name = "BillTB";
-            this.BillTB.Size = new System.Drawing.Size(226, 128);
+            this.BillTB.Size = new System.Drawing.Size(216, 156);
             this.BillTB.TabIndex = 9;
             this.BillTB.Text = "";
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(251, 263);
+            this.label2.Location = new System.Drawing.Point(251, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(226, 27);
             this.label2.TabIndex = 10;
             this.label2.Text = "Bill";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // MoveToBillBtn
+            // 
+            this.MoveToBillBtn.Location = new System.Drawing.Point(223, 265);
+            this.MoveToBillBtn.Name = "MoveToBillBtn";
+            this.MoveToBillBtn.Size = new System.Drawing.Size(39, 23);
+            this.MoveToBillBtn.TabIndex = 11;
+            this.MoveToBillBtn.Text = ">>";
+            this.MoveToBillBtn.UseVisualStyleBackColor = true;
+            this.MoveToBillBtn.Click += new System.EventHandler(this.MoveToBillBtn_Click);
+            // 
+            // ClearMenuBtn
+            // 
+            this.ClearMenuBtn.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ClearMenuBtn.Location = new System.Drawing.Point(222, 292);
+            this.ClearMenuBtn.Name = "ClearMenuBtn";
+            this.ClearMenuBtn.Size = new System.Drawing.Size(40, 23);
+            this.ClearMenuBtn.TabIndex = 12;
+            this.ClearMenuBtn.Text = "Clear";
+            this.ClearMenuBtn.UseVisualStyleBackColor = true;
+            this.ClearMenuBtn.Click += new System.EventHandler(this.ClearMenuBtn_Click);
+            // 
             // BillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 433);
+            this.Controls.Add(this.ClearMenuBtn);
+            this.Controls.Add(this.MoveToBillBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BillTB);
             this.Controls.Add(this.DrinkLB);
@@ -287,5 +312,7 @@ namespace KinoRezervacija
         private System.Windows.Forms.Label DrinkLB;
         private System.Windows.Forms.RichTextBox BillTB;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button MoveToBillBtn;
+        private System.Windows.Forms.Button ClearMenuBtn;
     }
 }

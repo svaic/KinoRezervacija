@@ -19,7 +19,6 @@ namespace KinoRezervacija
 
     public class Movie : IComparable<Movie>
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Regisseur { get; set; }
         public int Price { get; set; }
