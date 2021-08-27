@@ -1,9 +1,13 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
+    
     public partial class TheatherForm : Form
     {
         Theater theater = new Theater("Cineplexx");
@@ -148,5 +152,27 @@ namespace KinoRezervacija
         {
 
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = null;
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                fileName = sfd.FileName;
+                save(fileName);
+            }
+        }
+
+        private void save(string path)
+        {
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fs, theater);
+            }
+        }
+
+        
     }
 }

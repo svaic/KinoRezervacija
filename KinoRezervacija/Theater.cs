@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace KinoRezervacija
 {
+    [Serializable]
     enum HallType
     {
         Large,
         Medium,
         Small
     }
-
+    [Serializable]
     class Theater
     {
         public BindingList<Hall> Halls { get; set; }
