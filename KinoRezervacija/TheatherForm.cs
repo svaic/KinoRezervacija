@@ -125,7 +125,6 @@ namespace KinoRezervacija
             MenuForm MenuForm = (MenuForm)sender;
             bill.Menus = MenuForm.Menus;
         }
-
         private void ShowBillBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show(bill.ToString());

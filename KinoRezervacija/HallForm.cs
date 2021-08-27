@@ -30,7 +30,7 @@ namespace KinoRezervacija
 
         private void LoadSeats()
         {
-            /*
+
             int x = 0;
             int y = 0;
             int i = 0;
@@ -65,13 +65,13 @@ namespace KinoRezervacija
                     pictureBox1.BackColor = Color.Gray;
 
                 panel1.Controls.Add(pictureBox1);
-            }*/
-            var pictureBox1 = new PictureBox();
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.Image = Properties.Resources.HallSeat;
-            pictureBox1.MouseEnter += PictureBox_MouseEnter;
-            pictureBox1.MouseLeave += PictureBox_MouseLeave;
-            pictureBox1.MouseClick += PictureBox_Click;
+            }
+            //var pictureBox1 = new PictureBox();
+            //pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            //pictureBox1.Image = Properties.Resources.HallSeat;
+            //pictureBox1.MouseEnter += PictureBox_MouseEnter;
+            //pictureBox1.MouseLeave += PictureBox_MouseLeave;
+            //pictureBox1.MouseClick += PictureBox_Click;
         }
 
         private void PictureBox_Click(object sender, MouseEventArgs e)

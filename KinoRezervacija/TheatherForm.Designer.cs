@@ -42,16 +42,15 @@ namespace KinoRezervacija
             this.AscendCheckB = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.ShowBillBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.ShowBillBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addMovieBtn
             // 
-            this.addMovieBtn.Location = new System.Drawing.Point(14, 484);
-            this.addMovieBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.addMovieBtn.Location = new System.Drawing.Point(12, 363);
             this.addMovieBtn.Name = "addMovieBtn";
-            this.addMovieBtn.Size = new System.Drawing.Size(152, 39);
+            this.addMovieBtn.Size = new System.Drawing.Size(133, 29);
             this.addMovieBtn.TabIndex = 0;
             this.addMovieBtn.Text = "Add A Movie";
             this.addMovieBtn.UseVisualStyleBackColor = true;
@@ -60,19 +59,19 @@ namespace KinoRezervacija
             // MovieLB
             // 
             this.MovieLB.FormattingEnabled = true;
-            this.MovieLB.ItemHeight = 20;
-            this.MovieLB.Location = new System.Drawing.Point(14, 71);
-            this.MovieLB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MovieLB.ItemHeight = 15;
+            this.MovieLB.Location = new System.Drawing.Point(12, 53);
             this.MovieLB.Name = "MovieLB";
-            this.MovieLB.Size = new System.Drawing.Size(573, 404);
+            this.MovieLB.Size = new System.Drawing.Size(502, 304);
             this.MovieLB.TabIndex = 1;
             this.MovieLB.SelectedIndexChanged += new System.EventHandler(this.MovieLB_SelectedIndexChanged);
             // 
             // BuyTicketBtn
             // 
-            this.BuyTicketBtn.Location = new System.Drawing.Point(520, 363);
+            this.BuyTicketBtn.Location = new System.Drawing.Point(520, 298);
+            this.BuyTicketBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BuyTicketBtn.Name = "BuyTicketBtn";
-            this.BuyTicketBtn.Size = new System.Drawing.Size(306, 39);
+            this.BuyTicketBtn.Size = new System.Drawing.Size(245, 29);
             this.BuyTicketBtn.TabIndex = 2;
             this.BuyTicketBtn.Text = "Buy Ticket";
             this.BuyTicketBtn.UseVisualStyleBackColor = true;
@@ -80,10 +79,9 @@ namespace KinoRezervacija
             // 
             // MovieDetailsRTX
             // 
-            this.MovieDetailsRTX.Location = new System.Drawing.Point(594, 16);
-            this.MovieDetailsRTX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MovieDetailsRTX.Location = new System.Drawing.Point(520, 12);
             this.MovieDetailsRTX.Name = "MovieDetailsRTX";
-            this.MovieDetailsRTX.Size = new System.Drawing.Size(268, 345);
+            this.MovieDetailsRTX.Size = new System.Drawing.Size(245, 281);
             this.MovieDetailsRTX.TabIndex = 4;
             this.MovieDetailsRTX.Text = "";
             // 
@@ -91,18 +89,17 @@ namespace KinoRezervacija
             // 
             this.CinemaNameLB.AutoSize = true;
             this.CinemaNameLB.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CinemaNameLB.Location = new System.Drawing.Point(237, 12);
+            this.CinemaNameLB.Location = new System.Drawing.Point(207, 9);
             this.CinemaNameLB.Name = "CinemaNameLB";
-            this.CinemaNameLB.Size = new System.Drawing.Size(132, 46);
+            this.CinemaNameLB.Size = new System.Drawing.Size(107, 37);
             this.CinemaNameLB.TabIndex = 6;
             this.CinemaNameLB.Text = "Cinema";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(173, 484);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Location = new System.Drawing.Point(151, 363);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 39);
+            this.button2.Size = new System.Drawing.Size(101, 29);
             this.button2.TabIndex = 7;
             this.button2.Text = "add hall";
             this.button2.UseVisualStyleBackColor = true;
@@ -110,38 +107,36 @@ namespace KinoRezervacija
             // FilterCB
             // 
             this.FilterCB.FormattingEnabled = true;
-            this.FilterCB.Location = new System.Drawing.Point(14, 36);
-            this.FilterCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FilterCB.Location = new System.Drawing.Point(12, 27);
             this.FilterCB.Name = "FilterCB";
-            this.FilterCB.Size = new System.Drawing.Size(171, 28);
+            this.FilterCB.Size = new System.Drawing.Size(150, 23);
             this.FilterCB.TabIndex = 5;
             this.FilterCB.SelectionChangeCommitted += new System.EventHandler(this.FilterChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 12);
+            this.label2.Location = new System.Drawing.Point(35, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 8;
             this.label2.Text = "Filter by Genre";
             // 
             // SortCB
             // 
             this.SortCB.FormattingEnabled = true;
-            this.SortCB.Location = new System.Drawing.Point(449, 36);
-            this.SortCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SortCB.Location = new System.Drawing.Point(393, 27);
             this.SortCB.Name = "SortCB";
-            this.SortCB.Size = new System.Drawing.Size(138, 28);
+            this.SortCB.Size = new System.Drawing.Size(121, 23);
             this.SortCB.TabIndex = 9;
             this.SortCB.SelectedIndexChanged += new System.EventHandler(this.SortCB_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(489, 7);
+            this.label3.Location = new System.Drawing.Point(428, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Sort by";
             // 
@@ -150,10 +145,9 @@ namespace KinoRezervacija
             this.AscendCheckB.AutoSize = true;
             this.AscendCheckB.Checked = true;
             this.AscendCheckB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AscendCheckB.Location = new System.Drawing.Point(413, 41);
-            this.AscendCheckB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AscendCheckB.Location = new System.Drawing.Point(361, 31);
             this.AscendCheckB.Name = "AscendCheckB";
-            this.AscendCheckB.Size = new System.Drawing.Size(18, 17);
+            this.AscendCheckB.Size = new System.Drawing.Size(15, 14);
             this.AscendCheckB.TabIndex = 11;
             this.AscendCheckB.UseVisualStyleBackColor = true;
             this.AscendCheckB.CheckStateChanged += new System.EventHandler(this.AscendCheckB_CheckStateChanged);
@@ -161,31 +155,22 @@ namespace KinoRezervacija
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(395, 7);
+            this.label4.Location = new System.Drawing.Point(346, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
+            this.label4.Size = new System.Drawing.Size(46, 15);
             this.label4.TabIndex = 12;
             this.label4.Text = "Ascend";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(258, 363);
+            this.button1.Location = new System.Drawing.Point(520, 331);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 29);
+            this.button1.Size = new System.Drawing.Size(245, 27);
             this.button1.TabIndex = 13;
             this.button1.Text = "Food and Drinks";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ShowBillBtn
-            // 
-            this.ShowBillBtn.Location = new System.Drawing.Point(520, 363);
-            this.ShowBillBtn.Name = "ShowBillBtn";
-            this.ShowBillBtn.Size = new System.Drawing.Size(268, 29);
-            this.ShowBillBtn.TabIndex = 14;
-            this.ShowBillBtn.Text = "Show Bill";
-            this.ShowBillBtn.UseVisualStyleBackColor = true;
-            this.ShowBillBtn.Click += new System.EventHandler(this.ShowBillBtn_Click);
             // 
             // button3
             // 
@@ -196,11 +181,22 @@ namespace KinoRezervacija
             this.button3.Text = "Remove Movie";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // ShowBillBtn
+            // 
+            this.ShowBillBtn.Location = new System.Drawing.Point(520, 363);
+            this.ShowBillBtn.Name = "ShowBillBtn";
+            this.ShowBillBtn.Size = new System.Drawing.Size(245, 29);
+            this.ShowBillBtn.TabIndex = 14;
+            this.ShowBillBtn.Text = "Show Bill";
+            this.ShowBillBtn.UseVisualStyleBackColor = true;
+            this.ShowBillBtn.Click += new System.EventHandler(this.ShowBillBtn_Click);
+            // 
             // TheatherForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 402);
+            this.ClientSize = new System.Drawing.Size(777, 394);
+            this.Controls.Add(this.ShowBillBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.AscendCheckB);
@@ -214,7 +210,6 @@ namespace KinoRezervacija
             this.Controls.Add(this.BuyTicketBtn);
             this.Controls.Add(this.MovieLB);
             this.Controls.Add(this.addMovieBtn);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TheatherForm";
             this.Text = "W";
             this.ResumeLayout(false);
@@ -239,8 +234,8 @@ namespace KinoRezervacija
         private System.Windows.Forms.CheckBox AscendCheckB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button ShowBillBtn;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ShowBillBtn;
     }
 }
 
