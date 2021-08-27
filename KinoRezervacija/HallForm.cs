@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
-    public partial class HallForm : Form
+    partial class HallForm : Form
     {
-
         public Hall CurrHall { get; set; }
+        public List<MovieTicket> SeatsBought { get; set; }
 
         private List<int> SelectedSeats;
         public HallForm(Hall hall)
@@ -23,12 +23,14 @@ namespace KinoRezervacija
             GenreLB.Text = string.Format("Genre: {0}", CurrHall.CurrentMoviePlaying.Genre);
 
             SelectedSeats = new List<int>();
+            SeatsBought = new List<MovieTicket>();
 
             LoadSeats();
         }
 
         private void LoadSeats()
         {
+            /*
             int x = 0;
             int y = 0;
             int i = 0;
@@ -63,7 +65,13 @@ namespace KinoRezervacija
                     pictureBox1.BackColor = Color.Gray;
 
                 panel1.Controls.Add(pictureBox1);
-            }
+            }*/
+            var pictureBox1 = new PictureBox();
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.Image = Properties.Resources.HallSeat;
+            pictureBox1.MouseEnter += PictureBox_MouseEnter;
+            pictureBox1.MouseLeave += PictureBox_MouseLeave;
+            pictureBox1.MouseClick += PictureBox_Click;
         }
 
         private void PictureBox_Click(object sender, MouseEventArgs e)
@@ -112,10 +120,13 @@ namespace KinoRezervacija
 
         private void BuyBtn_Click(object sender, EventArgs e)
         {
+            SeatsBought.Clear();
             foreach (int index in SelectedSeats)
             {
                 CurrHall.BookedSeats[index] = true;
+                SeatsBought.Add(new MovieTicket(CurrHall, index));
             }
+
             SelectedSeats.Clear();
             RefreshPrice();
         }

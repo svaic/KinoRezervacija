@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
-    public partial class BillForm : Form
+    partial class MenuForm : Form
     {
         static IExtra[] Foods = new Food[] { new Food("Popcorn", 200), new Food("HotDog", 150), new Food("Nacho", 200) };
         static IExtra[] FoodAddition = new Food[] { new Food("Ketchup", 30), new Food("Mayo", 150), new Food("Sauce", 200) };
@@ -19,13 +19,13 @@ namespace KinoRezervacija
 
         
         Menu CurrentMenu;
-        List<Menu> Bill;
+        public List<Menu> Menus { get; set; }
 
-        public BillForm()
+        public MenuForm()
         {
             InitializeComponent();
 
-            Bill = new List<Menu>();
+            this.Menus = new List<Menu>();
 
             IExtra Popcorn = new Food("Popcorn",50);
             IExtra Ketchup = new FoodAddition("Ketchup",10, Popcorn);
@@ -70,19 +70,21 @@ namespace KinoRezervacija
 
             SelectedMenuTB.Text = CurrentMenu.GetDescription();
 
-            if (CurrentMenu.IsFull())
+            if (!CurrentMenu.CanBeFull || CurrentMenu.IsFull())
             {
-                MoveMenuToBill();
+                //MoveMenuToBill();
+                MoveToBillBtn.Enabled = true;
             }
+            else MoveToBillBtn.Enabled = false;
         }
 
         private void MoveMenuToBill()
         {
-
+            if (CurrentMenu.CanBeFull && !CurrentMenu.IsFull()) return;
             if (MessageBox.Show(CurrentMenu.GetDescription(), "add current menu to bill?", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                Bill.Add(CurrentMenu);
-                BillTB.Text = String.Join("\n", Bill.Select(x => x.GetDescription()).ToList()) + "\nTotal price: " + Bill.Select(x => x.GetPrice()).Aggregate((x, y) => x + y);
+                Menus.Add(CurrentMenu);
+                BillTB.Text = String.Join("\n", Menus.Select(x => x.GetDescription()).ToList()) + "\nTotal price: " + Menus.Select(x => x.GetPrice()).Aggregate((x, y) => x + y);
             }
             CreateNewMenu();
             RefreshLabels();
@@ -92,6 +94,7 @@ namespace KinoRezervacija
         {
             Type objectType = MenuCB.SelectedItem.GetType();
             CurrentMenu = (Menu)Activator.CreateInstance(objectType);
+            RefreshLabels();
         }
 
         private void AddFoodBtn_Click(object sender, EventArgs e)

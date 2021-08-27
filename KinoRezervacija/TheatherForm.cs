@@ -7,6 +7,7 @@ namespace KinoRezervacija
     public partial class TheatherForm : Form
     {
         Theater theater = new Theater("Cineplexx");
+        Bill bill;
         public TheatherForm()
         {
             InitializeComponent();
@@ -16,9 +17,11 @@ namespace KinoRezervacija
             MovieLB.DataSource = theater.Halls;
             SortCB.DataSource = Movie.SortType.Keys.ToList();
 
-            var e = Enum.GetNames(typeof(Genre)).ToList();
-            e.Insert(0, "None");
-            FilterCB.DataSource = e;
+            var GenreEnums = Enum.GetNames(typeof(Genre)).ToList();
+            GenreEnums.Insert(0, "None");
+            FilterCB.DataSource = GenreEnums;
+
+            bill = new Bill();
 
             RefreshDetails();
         }
@@ -57,6 +60,8 @@ namespace KinoRezervacija
 
         private void HallForm_Closed(object sender, FormClosedEventArgs e)
         {
+            HallForm hallForm = (HallForm)sender;
+            bill.Tickets.AddRange(hallForm.SeatsBought);
             RefreshListBox();
         }
 
@@ -103,8 +108,20 @@ namespace KinoRezervacija
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BillForm billForm = new BillForm();
-            billForm.Show();
+            MenuForm menuForm = new MenuForm();
+            menuForm.FormClosed += MenuForm_FormClosed;
+            menuForm.Show();
+        }
+
+        private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MenuForm MenuForm = (MenuForm)sender;
+            bill.Menus = MenuForm.Menus;
+        }
+
+        private void ShowBillBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(bill.ToString());
         }
     }
 }

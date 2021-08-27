@@ -192,4 +192,44 @@ namespace KinoRezervacija
             this.DrinkDiscount = (decimal)1;
         }
     }
+
+    class Bill
+    {
+        public List<MovieTicket> Tickets { get; set; }
+        public List<Menu> Menus { get; set; }
+        public string GetTickets => string.Join("\n", Tickets.Select(x => x.ToString()).ToArray());
+
+        public string GetMenus => string.Join("\n", Menus.Select(x => x.GetDescription()).ToList());
+        public int GetTotalPrice => Tickets.Select(x => x.Movie.Price).Sum() + Menus.Select(x => x.GetPrice()).Sum();
+        public override string ToString()
+        {
+            return "Movie tickets:\n" + GetTickets + "\nFood and Drinks\n" + GetMenus + "\nTotal Price:" + GetTotalPrice + " ден";
+        }
+
+        public Bill()
+        {
+            Tickets = new List<MovieTicket>();
+            Menus = new List<Menu>();
+        }
+    }
+
+    class MovieTicket
+    {
+        public MovieTicket(Hall hall, int seat)
+        {
+            Hall = hall;
+            Seat = seat;
+            Movie = Hall.CurrentMoviePlaying;
+        }
+
+        public Movie Movie { get; set; }
+        public Hall Hall { get; set; }
+        public int Seat { get; set; }
+
+        public override string ToString()
+        {
+            return Movie.FullTitle + " | " + Hall.HallName + " Seat:" + Seat + " Price:" + Movie.Price;
+        }
+    }
+
 }

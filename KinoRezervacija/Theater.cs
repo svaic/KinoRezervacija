@@ -53,6 +53,7 @@ namespace KinoRezervacija
                 if (BestMovies.Count > i) BuildHall(i + 1, BestMovies[i], hallType);
                 else BuildHall(i, null, hallType);
             }
+
         }
 
         private void BuildHall(int number, Movie moviePlaying, HallType hallType)

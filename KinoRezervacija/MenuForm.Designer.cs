@@ -1,7 +1,7 @@
 ﻿
 namespace KinoRezervacija
 {
-    partial class BillForm
+    partial class MenuForm
     {
         /// <summary>
         /// Required designer variable.
