@@ -187,7 +187,7 @@ namespace KinoRezervacija
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddMovie";
-            this.Text = "AddMovie";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);

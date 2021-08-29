@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace KinoRezervacija
 {
+    [Serializable]
     public class Hall : IComparable<Hall>
     {
         public Movie CurrentMoviePlaying { get; set; }

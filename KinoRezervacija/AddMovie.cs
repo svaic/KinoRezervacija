@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
+    
     public partial class AddMovie : Form
     {
         public Movie movie { get; set; }
@@ -25,17 +26,6 @@ namespace KinoRezervacija
 
         private void btnAddMovie_Click(object sender, EventArgs e)
         {
-            //Genre genre;
-            //if (Convert.ToInt32(listGenre.SelectedIndex) == 0)
-            //    genre = Genre.Action;
-            //else if (Convert.ToInt32(listGenre.SelectedIndex) == 1)
-            //    genre = Genre.Comedy;
-            //else if (Convert.ToInt32(listGenre.SelectedIndex) == 2)
-            //    genre = Genre.Drama;
-            //else if (Convert.ToInt32(listGenre.SelectedIndex) == 3)
-            //    genre = Genre.Documentary;
-            //else
-            //    genre = Genre.Fantasy;
             string filter = (string)listGenre.SelectedItem;
             Genre genre = (Genre)Enum.Parse(typeof(Genre), filter);
             movie = new Movie(tbName.Text, tbRegisseur.Text, Convert.ToInt32(numPrice.Value), genre, Convert.ToInt32(listHalls.SelectedValue.ToString().Split(" ")[1]));

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace KinoRezervacija
 {
+    [Serializable]
     abstract class Menu
     {
         public List<IExtra> Food { get; set; }

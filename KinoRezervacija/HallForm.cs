@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
+    [Serializable]
     partial class HallForm : Form
     {
         public Hall CurrHall { get; set; }

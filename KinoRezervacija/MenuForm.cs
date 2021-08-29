@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace KinoRezervacija
 {
+   
     partial class MenuForm : Form
     {
         static IExtra[] Foods = new Food[] { new Food("Popcorn", 200), new Food("HotDog", 150), new Food("Nacho", 200) };
