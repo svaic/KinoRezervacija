@@ -62,3 +62,103 @@ Windows Forms Project by: Luka Jovanovski, Ivana Girazova and Jana Micevska
 
 ##3. Претставување на проблемот
 
+###3.1 Податочни структури
+Најбитните податоци поврзани со киното и филмовите се чуваат во класите Theater, Hall и Movie
+
+3.1.1
+```class Theater```
+Чува листа од кино сали во кои се емитува некаков филм или е празен.Исто така ги чува сите филмови што некад биле емитувани а не се моментално емитувани за повторна употреба.
+
+```
+  public BindingList<Hall> Halls { get; set; }
+  public BindingList<Hall> _halls { get; set; }
+  ```
+  има две листи , _halls ги чува сите сали со сите нивни атрибути додека листата Halls ги чува само во моментот исфилтрираните и сортираните кино сали.
+  
+  ```
+  public static Comparison<Movie> DefaultComparator = Movie.Comparator.CompareByName;
+  ```
+  исто така чува компаратор за класата Movie што ќе и озчани кои ќе е дефаултниот атрибут по кој што ќе се сортираат филмовите.  
+
+3.1.2
+```class Hall```
+Чува податоци за големината на салата како и кој филм се презентира во момоентот во таа сала.Исто така се чува информации кои седишта од таа сала се веќе купени а кои се слободни
+Големината на салата се чува во енум
+```
+    enum HallType
+    {
+        Large,
+        Medium,
+        Small
+    }
+```
+3.1.3
+```class Movie```
+Чува податоци за филм како име, режисер, цена...
+
+```
+        public class Comparator
+        {
+            public static Comparison<Movie> CompareByPrice = (Movie m1, Movie m2) => m1.Price.CompareTo(m2.Price);
+
+            public static Comparison<Movie> CompareByName = delegate (Movie object1, Movie object2)
+            {
+                return object1.Name.CompareTo(object2.Name);
+            };
+
+            public static Comparison<Movie> CompareByGenre = delegate (Movie object1, Movie object2)
+            {
+                return object1.Genre.CompareTo(object2.Genre);
+            };
+
+            public static Comparison<Movie> CompareByRegisseur = (Movie m1, Movie m2) => m1.Regisseur.CompareTo(m2.Regisseur);
+        }
+```
+Ги чува сите компаратори за класата Movie во посебна класа и за нејзината употреба само треба да се употреби 
+```
+Movie.Comparator.CompareByName; //пример за користење на компараторот за споредба според име
+```
+За полесно да се достапи до компараторите преку Combobox се ставени во Dictionary каде што клучот им е името а во вредноста се наоѓа самиот компаратор
+```
+        public static Dictionary<string, Comparison<Movie>> SortType = new Dictionary<string, Comparison<Movie>>()
+        {
+            { "Title", Comparator.CompareByName },
+            { "Genre", Comparator.CompareByGenre },
+            { "Price", Comparator.CompareByPrice },
+            { "Regisseur", Comparator.CompareByRegisseur }
+        };
+```
+класата ```class MovieComparator : IComparer<Movie>``` е потребна за компараторите да се претворат во IComparer и да може во c# linq да се употребат
+```
+                Halls = new BindingList<Hall>(Halls
+                    .OrderBy(x => x.CurrentMoviePlaying == null)
+                    .ThenBy(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator)))
+                    .ThenBy(x => x.HallNumber).ToList());
+```
+
+
+3.1.4 Менија
+```
+    abstract class Menu
+```
+за купувањеното јадење и пиење се користат DefaultMenu, LoveMenu и NoMenu кои наследуваат од апстракната класа Menu.Тие чуваат ограничен број на јадења и пиења и на истите има попуст или неограничен број на јадење и пиење на кои што нема попуст.Истите се чуваат во листа од Menu односно тука е искористено полиморфизам.
+
+3.1.5 Јадење и пиење
+самите јадења и пиења можат да имаат мали додатоци како хот-дог со кечап/мајонес или и двете или спрајт со дополнителни коцки мраз.За оваа функционалност да се постигне е искористен [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern).
+
+```
+    interface IExtra
+```
+Интерфејсот IExtra чува во него име и цена и од него наследуваат класите Food и FoodAddition.Во FoodAddition се чува дополнителен propery
+```        public IExtra FoodDrink { get; set; }```
+со тоа чуваме предходен додадок и со комбинација на Food i повеќе FoodAddition се добива всушност структура каде што само го знаеме најгорниот FoodAddition и рекурзивно самиот тој си ја пресметува цената на сите додатоци кои се поврзани со него.
+
+```
+IExtra Popcorn = new Food("Popcorn",50);
+IExtra Ketchup = new FoodAddition("Ketchup",10, Popcorn);
+IExtra Senf = new FoodAddition("Senf",15, Ketchup);
+Console.Writeline(Senf.Price) //75
+```
+
+3.1.6
+за чување на податоци поврзани со **карта за кино и сметка** се користат класите MovieTicket и Bill.MovieTicket содржи информации за филмот како и во која сала се наоѓа и бројот на седиште, додека класата Bill содржи листа од MovieTicket како и листа од Menu и разни атрибути за форматот на печатење.
