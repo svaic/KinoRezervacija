@@ -58,18 +58,19 @@ namespace KinoRezervacija
             // MenuCB
             // 
             this.MenuCB.FormattingEnabled = true;
-            this.MenuCB.Location = new System.Drawing.Point(129, 43);
+            this.MenuCB.Location = new System.Drawing.Point(147, 57);
+            this.MenuCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MenuCB.Name = "MenuCB";
-            this.MenuCB.Size = new System.Drawing.Size(231, 23);
+            this.MenuCB.Size = new System.Drawing.Size(263, 28);
             this.MenuCB.TabIndex = 0;
             this.MenuCB.SelectedIndexChanged += new System.EventHandler(this.MenuCBSelectedItemChanged);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(14, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(461, 31);
+            this.label1.Size = new System.Drawing.Size(527, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "Menu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -106,20 +107,21 @@ namespace KinoRezervacija
             // 
             // SelectedMenuTB
             // 
-            this.SelectedMenuTB.Location = new System.Drawing.Point(15, 265);
+            this.SelectedMenuTB.Location = new System.Drawing.Point(17, 353);
+            this.SelectedMenuTB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SelectedMenuTB.Name = "SelectedMenuTB";
-            this.SelectedMenuTB.Size = new System.Drawing.Size(210, 156);
+            this.SelectedMenuTB.Size = new System.Drawing.Size(239, 207);
             this.SelectedMenuTB.TabIndex = 3;
             this.SelectedMenuTB.Text = "";
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 235);
+            this.label4.Location = new System.Drawing.Point(14, 313);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(226, 27);
+            this.label4.Size = new System.Drawing.Size(258, 36);
             this.label4.TabIndex = 4;
-            this.label4.Text = "current menus";
+            this.label4.Text = "Current Menus";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel2
@@ -140,34 +142,38 @@ namespace KinoRezervacija
             this.flowLayoutPanel1.Controls.Add(this.FoodCB);
             this.flowLayoutPanel1.Controls.Add(this.FoodAdditionPanel);
             this.flowLayoutPanel1.Controls.Add(this.AddFoodBtn);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 83);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 111);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(225, 136);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(257, 181);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // FoodCB
             // 
             this.FoodCB.FormattingEnabled = true;
-            this.FoodCB.Location = new System.Drawing.Point(3, 3);
+            this.FoodCB.Location = new System.Drawing.Point(3, 4);
+            this.FoodCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FoodCB.Name = "FoodCB";
-            this.FoodCB.Size = new System.Drawing.Size(222, 23);
+            this.FoodCB.Size = new System.Drawing.Size(253, 28);
             this.FoodCB.TabIndex = 0;
             this.FoodCB.SelectedIndexChanged += new System.EventHandler(this.FoodChanged);
             // 
             // FoodAdditionPanel
             // 
-            this.FoodAdditionPanel.Location = new System.Drawing.Point(3, 32);
+            this.FoodAdditionPanel.Location = new System.Drawing.Point(3, 40);
+            this.FoodAdditionPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FoodAdditionPanel.Name = "FoodAdditionPanel";
-            this.FoodAdditionPanel.Size = new System.Drawing.Size(222, 66);
+            this.FoodAdditionPanel.Size = new System.Drawing.Size(254, 88);
             this.FoodAdditionPanel.TabIndex = 2;
             // 
             // AddFoodBtn
             // 
-            this.AddFoodBtn.Location = new System.Drawing.Point(3, 104);
+            this.AddFoodBtn.Location = new System.Drawing.Point(3, 136);
+            this.AddFoodBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddFoodBtn.Name = "AddFoodBtn";
-            this.AddFoodBtn.Size = new System.Drawing.Size(223, 32);
+            this.AddFoodBtn.Size = new System.Drawing.Size(255, 43);
             this.AddFoodBtn.TabIndex = 3;
-            this.AddFoodBtn.Text = "add food";
+            this.AddFoodBtn.Text = "Add Food";
             this.AddFoodBtn.UseVisualStyleBackColor = true;
             this.AddFoodBtn.Click += new System.EventHandler(this.AddFoodBtn_Click);
             // 
@@ -176,78 +182,84 @@ namespace KinoRezervacija
             this.flowLayoutPanel3.Controls.Add(this.DrinkCB);
             this.flowLayoutPanel3.Controls.Add(this.DrinkAdditionPanel);
             this.flowLayoutPanel3.Controls.Add(this.AddDrinkBtn);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(248, 83);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(283, 111);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(225, 136);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(257, 181);
             this.flowLayoutPanel3.TabIndex = 6;
             // 
             // DrinkCB
             // 
             this.DrinkCB.FormattingEnabled = true;
-            this.DrinkCB.Location = new System.Drawing.Point(3, 3);
+            this.DrinkCB.Location = new System.Drawing.Point(3, 4);
+            this.DrinkCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DrinkCB.Name = "DrinkCB";
-            this.DrinkCB.Size = new System.Drawing.Size(222, 23);
+            this.DrinkCB.Size = new System.Drawing.Size(253, 28);
             this.DrinkCB.TabIndex = 0;
             this.DrinkCB.SelectedIndexChanged += new System.EventHandler(this.DrinkChanged);
             // 
             // DrinkAdditionPanel
             // 
-            this.DrinkAdditionPanel.Location = new System.Drawing.Point(3, 32);
+            this.DrinkAdditionPanel.Location = new System.Drawing.Point(3, 40);
+            this.DrinkAdditionPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DrinkAdditionPanel.Name = "DrinkAdditionPanel";
-            this.DrinkAdditionPanel.Size = new System.Drawing.Size(222, 66);
+            this.DrinkAdditionPanel.Size = new System.Drawing.Size(254, 88);
             this.DrinkAdditionPanel.TabIndex = 2;
             // 
             // AddDrinkBtn
             // 
-            this.AddDrinkBtn.Location = new System.Drawing.Point(3, 104);
+            this.AddDrinkBtn.Location = new System.Drawing.Point(3, 136);
+            this.AddDrinkBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddDrinkBtn.Name = "AddDrinkBtn";
-            this.AddDrinkBtn.Size = new System.Drawing.Size(223, 32);
+            this.AddDrinkBtn.Size = new System.Drawing.Size(255, 43);
             this.AddDrinkBtn.TabIndex = 3;
-            this.AddDrinkBtn.Text = "add drink";
+            this.AddDrinkBtn.Text = "Add Drink";
             this.AddDrinkBtn.UseVisualStyleBackColor = true;
             this.AddDrinkBtn.Click += new System.EventHandler(this.AddDrinkBtn_Click);
             // 
             // FoodLB
             // 
             this.FoodLB.AutoSize = true;
-            this.FoodLB.Location = new System.Drawing.Point(96, 69);
+            this.FoodLB.Location = new System.Drawing.Point(110, 92);
             this.FoodLB.Name = "FoodLB";
-            this.FoodLB.Size = new System.Drawing.Size(34, 15);
+            this.FoodLB.Size = new System.Drawing.Size(43, 20);
             this.FoodLB.TabIndex = 7;
             this.FoodLB.Text = "Food";
             // 
             // DrinkLB
             // 
             this.DrinkLB.AutoSize = true;
-            this.DrinkLB.Location = new System.Drawing.Point(354, 69);
+            this.DrinkLB.Location = new System.Drawing.Point(405, 92);
             this.DrinkLB.Name = "DrinkLB";
-            this.DrinkLB.Size = new System.Drawing.Size(35, 15);
+            this.DrinkLB.Size = new System.Drawing.Size(44, 20);
             this.DrinkLB.TabIndex = 8;
             this.DrinkLB.Text = "Drink";
             // 
             // BillTB
             // 
-            this.BillTB.Location = new System.Drawing.Point(261, 265);
+            this.BillTB.Location = new System.Drawing.Point(298, 353);
+            this.BillTB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BillTB.Name = "BillTB";
-            this.BillTB.Size = new System.Drawing.Size(216, 156);
+            this.BillTB.Size = new System.Drawing.Size(246, 207);
             this.BillTB.TabIndex = 9;
             this.BillTB.Text = "";
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(251, 235);
+            this.label2.Location = new System.Drawing.Point(287, 313);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 27);
+            this.label2.Size = new System.Drawing.Size(258, 36);
             this.label2.TabIndex = 10;
             this.label2.Text = "Bill";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MoveToBillBtn
             // 
-            this.MoveToBillBtn.Location = new System.Drawing.Point(223, 265);
+            this.MoveToBillBtn.Location = new System.Drawing.Point(255, 353);
+            this.MoveToBillBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MoveToBillBtn.Name = "MoveToBillBtn";
-            this.MoveToBillBtn.Size = new System.Drawing.Size(39, 23);
+            this.MoveToBillBtn.Size = new System.Drawing.Size(45, 31);
             this.MoveToBillBtn.TabIndex = 11;
             this.MoveToBillBtn.Text = ">>";
             this.MoveToBillBtn.UseVisualStyleBackColor = true;
@@ -256,19 +268,20 @@ namespace KinoRezervacija
             // ClearMenuBtn
             // 
             this.ClearMenuBtn.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ClearMenuBtn.Location = new System.Drawing.Point(222, 292);
+            this.ClearMenuBtn.Location = new System.Drawing.Point(254, 389);
+            this.ClearMenuBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ClearMenuBtn.Name = "ClearMenuBtn";
-            this.ClearMenuBtn.Size = new System.Drawing.Size(40, 23);
+            this.ClearMenuBtn.Size = new System.Drawing.Size(46, 31);
             this.ClearMenuBtn.TabIndex = 12;
             this.ClearMenuBtn.Text = "Clear";
             this.ClearMenuBtn.UseVisualStyleBackColor = true;
             this.ClearMenuBtn.Click += new System.EventHandler(this.ClearMenuBtn_Click);
             // 
-            // BillForm
+            // MenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 433);
+            this.ClientSize = new System.Drawing.Size(554, 577);
             this.Controls.Add(this.ClearMenuBtn);
             this.Controls.Add(this.MoveToBillBtn);
             this.Controls.Add(this.label2);
@@ -281,7 +294,8 @@ namespace KinoRezervacija
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MenuCB);
-            this.Name = "BillForm";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "MenuForm";
             this.Text = "BillForm";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);

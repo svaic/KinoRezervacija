@@ -16,7 +16,6 @@ namespace KinoRezervacija
         public TheatherForm()
         {
             InitializeComponent();
-            CinemaNameLB.Text = theater.Name;
 
             MovieLB.DataSource = theater.Halls;
             SortCB.DataSource = Movie.SortType.Keys.ToList();
@@ -142,6 +141,11 @@ namespace KinoRezervacija
         private void btnRemove_Click(object sender, EventArgs e)
         {
             Hall selectedHall = (Hall)MovieLB.SelectedItem;
+            if(selectedHall.CurrentMoviePlaying == null)
+            {
+                MessageBox.Show("There is currently no movie playing in this hall.");
+                return;
+            }
             string text = "Are you sure you want to remove the movie in " + selectedHall.HallName + "?";
             DialogResult result = MessageBox.Show(text, "Remove Movie?", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)

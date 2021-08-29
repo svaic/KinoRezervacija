@@ -38,10 +38,10 @@ namespace KinoRezervacija
             this.GenreLB = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // SeatsFlowLayout
             // 
             this.SeatsFlowLayout.Location = new System.Drawing.Point(0, 88);
-            this.SeatsFlowLayout.Name = "flowLayoutPanel1";
+            this.SeatsFlowLayout.Name = "SeatsFlowLayout";
             this.SeatsFlowLayout.Size = new System.Drawing.Size(1070, 327);
             this.SeatsFlowLayout.TabIndex = 0;
             // 
@@ -49,7 +49,7 @@ namespace KinoRezervacija
             // 
             this.HallNameLB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.HallNameLB.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.HallNameLB.Location = new System.Drawing.Point(12, 9);
+            this.HallNameLB.Location = new System.Drawing.Point(12, 12);
             this.HallNameLB.Name = "HallNameLB";
             this.HallNameLB.Size = new System.Drawing.Size(1046, 45);
             this.HallNameLB.TabIndex = 1;
@@ -109,7 +109,7 @@ namespace KinoRezervacija
             // HallForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1070, 464);
+            this.ClientSize = new System.Drawing.Size(1070, 470);
             this.Controls.Add(this.SeatsFlowLayout);
             this.Controls.Add(this.GenreLB);
             this.Controls.Add(this.SinglePriceLB);
