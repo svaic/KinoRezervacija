@@ -178,7 +178,7 @@ namespace KinoRezervacija
             this.CreatedMoviesBeforeCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreatedMoviesBeforeCB.Name = "CreatedMoviesBeforeCB";
             this.CreatedMoviesBeforeCB.Size = new System.Drawing.Size(301, 28);
-            this.CreatedMoviesBeforeCB.TabIndex = 14;
+            this.CreatedMoviesBeforeCB.TabIndex = 1;
             // 
             // label6
             // 
