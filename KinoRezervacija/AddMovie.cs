@@ -29,6 +29,8 @@ namespace KinoRezervacija
             CreatedMoviesBeforeCB.DataSource = AlreadyCreatedMovies;
             CreatedMoviesBeforeCB.DisplayMember = "FullTitle";
             CreatedMoviesBeforeCB.SelectedIndex = -1;
+
+            CreatedMoviesBeforeCB.Focus();
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)
