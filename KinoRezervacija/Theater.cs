@@ -35,27 +35,25 @@ namespace KinoRezervacija
         {
             _halls = new BindingList<Hall>();
             
-            
-            HallType hallType = HallType.Large;
-
-            
             for (int i = 0; i < hallNumber; i++)
             {
+                HallType hallType;
                 if (i < 3)
                     hallType = HallType.Small;
                 else if (i < 6)
                     hallType = HallType.Medium;
                 else hallType = HallType.Large;
-                BuildHall(i+1, hallType);
+
+                BuildHall(hallType);
             }
 
         }
 
-        private void BuildHall(int number, HallType hallType)
+        public void BuildHall(HallType hallType)
         {
-            if (hallType == HallType.Small) _halls.Add(new Hall(number, null, 20));
-            if (hallType == HallType.Medium) _halls.Add(new Hall(number, null, 30));
-            if (hallType == HallType.Large) _halls.Add(new Hall(number, null, 50));
+            if (hallType == HallType.Small) _halls.Add(new Hall(_halls.Count +1, null, 20));
+            if (hallType == HallType.Medium) _halls.Add(new Hall(_halls.Count +1, null, 30));
+            if (hallType == HallType.Large) _halls.Add(new Hall(_halls.Count +1, null, 50));
             Halls = _halls;
         }
 
@@ -74,16 +72,16 @@ namespace KinoRezervacija
 
         public void RemoveMovie(int hallNumber)
         {
-            Movies.Remove(_halls.ElementAt(hallNumber - 1).CurrentMoviePlaying);
+            //Movies.Remove(_halls.ElementAt(hallNumber - 1).CurrentMoviePlaying);
             _halls.ElementAt(hallNumber - 1).CurrentMoviePlaying = null;
         }
         public void CompareBy(string Type, bool Ascending)
         {
             //Halls = new BindingList<Hall> (Halls.OrderBy(x=>x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying).ToList());
             if (Ascending)
-                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ToList());
+                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ThenBy(x => x.HallNumber).ToList());
             else
-                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenByDescending(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ToList());
+                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenByDescending(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ThenBy(x => x.HallNumber).ToList());
         }
 
         public void FilterBy(Genre Type)

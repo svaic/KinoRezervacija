@@ -21,7 +21,6 @@ namespace KinoRezervacija
         public string Name { get; set; }
         public string Regisseur { get; set; }
         public int Price { get; set; }
-        public int HallNumber { get; set; }
         public string FullTitle
         {
             get { return Name + " | " + Genre; }
@@ -53,13 +52,12 @@ namespace KinoRezervacija
         };
 
         public static Comparison<Movie> DefaultComparator = Comparator.CompareByName;
-        public Movie(string name, string regisseur, int price, Genre genre, int hallNumber)
+        public Movie(string name, string regisseur, int price, Genre genre)
         {
             Name = name;
             Regisseur = regisseur;
             Price = price;
             Genre = genre;
-            HallNumber = hallNumber;
         }
 
         public override string ToString()

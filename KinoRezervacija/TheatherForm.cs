@@ -73,14 +73,15 @@ namespace KinoRezervacija
 
         private void addMovieBtn_Click(object sender, EventArgs e)
         {
-            AddMovie form = new AddMovie(theater._halls);
+            AddMovie form = new AddMovie(theater._halls,theater.Movies);
             DialogResult result = form.ShowDialog();
             if(result == DialogResult.OK)
             {
-                theater.Movies.Add(form.movie);
-                theater.AddMovieToHall(form.movie,form.SelectedHall.HallNumber);
-                RefreshListBox();
+                //theater.Movies.Add(form.movie);
+                //theater.AddMovieToHall(form.NewMovie,form.SelectedHall.HallNumber);
+
             }
+            RefreshListBox();
         }
 
         private void SortCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,23 +136,31 @@ namespace KinoRezervacija
         private void ShowBillBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show(bill.ToString());
+            bill = new Bill();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            string text = "Are you sure you want to remove the movie in " + MovieLB.SelectedItem.ToString().Split()[0] + MovieLB.SelectedItem.ToString().Split()[1] + "?";
+            Hall selectedHall = (Hall)MovieLB.SelectedItem;
+            string text = "Are you sure you want to remove the movie in " + selectedHall.HallName + "?";
             DialogResult result = MessageBox.Show(text, "Remove Movie?", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {
-                theater.RemoveMovie(Convert.ToInt32(MovieLB.SelectedItem.ToString().Split()[1]));
+                //theater.RemoveMovie(Convert.ToInt32(MovieLB.SelectedItem.ToString().Split()[1]));
+                selectedHall.RemoveMoviePlaying();
             }
             RefreshListBox();
             RefreshDetails();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void AddHallBtn_Click(object sender, EventArgs e)
         {
-
+            CreateHallForm createHallForm = new CreateHallForm(theater);
+            DialogResult result = createHallForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                RefreshListBox();
+            }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,5 +201,7 @@ namespace KinoRezervacija
             }
             RefreshListBox();
         }
+
+
     }
 }

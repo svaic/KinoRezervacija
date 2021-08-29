@@ -35,7 +35,7 @@ namespace KinoRezervacija
             this.BuyTicketBtn = new System.Windows.Forms.Button();
             this.MovieDetailsRTX = new System.Windows.Forms.RichTextBox();
             this.CinemaNameLB = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AddHallBtn = new System.Windows.Forms.Button();
             this.FilterCB = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SortCB = new System.Windows.Forms.ComboBox();
@@ -43,8 +43,6 @@ namespace KinoRezervacija
             this.AscendCheckB = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.ShowBillBtn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,16 +75,15 @@ namespace KinoRezervacija
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.ShowBillBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addMovieBtn
             // 
-            this.addMovieBtn.Location = new System.Drawing.Point(14, 381);
-            this.addMovieBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.addMovieBtn.Location = new System.Drawing.Point(12, 286);
             this.addMovieBtn.Name = "addMovieBtn";
-            this.addMovieBtn.Size = new System.Drawing.Size(180, 39);
+            this.addMovieBtn.Size = new System.Drawing.Size(158, 29);
             this.addMovieBtn.TabIndex = 0;
             this.addMovieBtn.Text = "Add A Movie";
             this.addMovieBtn.UseVisualStyleBackColor = true;
@@ -95,19 +92,19 @@ namespace KinoRezervacija
             // MovieLB
             // 
             this.MovieLB.FormattingEnabled = true;
-            this.MovieLB.ItemHeight = 20;
-            this.MovieLB.Location = new System.Drawing.Point(14, 91);
-            this.MovieLB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MovieLB.ItemHeight = 15;
+            this.MovieLB.Location = new System.Drawing.Point(12, 68);
             this.MovieLB.Name = "MovieLB";
-            this.MovieLB.Size = new System.Drawing.Size(573, 284);
+            this.MovieLB.Size = new System.Drawing.Size(502, 214);
             this.MovieLB.TabIndex = 1;
             this.MovieLB.SelectedIndexChanged += new System.EventHandler(this.MovieLB_SelectedIndexChanged);
             // 
             // BuyTicketBtn
             // 
-            this.BuyTicketBtn.Location = new System.Drawing.Point(593, 336);
+            this.BuyTicketBtn.Location = new System.Drawing.Point(519, 252);
+            this.BuyTicketBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BuyTicketBtn.Name = "BuyTicketBtn";
-            this.BuyTicketBtn.Size = new System.Drawing.Size(132, 39);
+            this.BuyTicketBtn.Size = new System.Drawing.Size(116, 29);
             this.BuyTicketBtn.TabIndex = 2;
             this.BuyTicketBtn.Text = "Buy Ticket";
             this.BuyTicketBtn.UseVisualStyleBackColor = true;
@@ -115,10 +112,9 @@ namespace KinoRezervacija
             // 
             // MovieDetailsRTX
             // 
-            this.MovieDetailsRTX.Location = new System.Drawing.Point(593, 56);
-            this.MovieDetailsRTX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MovieDetailsRTX.Location = new System.Drawing.Point(519, 42);
             this.MovieDetailsRTX.Name = "MovieDetailsRTX";
-            this.MovieDetailsRTX.Size = new System.Drawing.Size(268, 277);
+            this.MovieDetailsRTX.Size = new System.Drawing.Size(235, 209);
             this.MovieDetailsRTX.TabIndex = 4;
             this.MovieDetailsRTX.Text = "";
             // 
@@ -127,57 +123,55 @@ namespace KinoRezervacija
             this.CinemaNameLB.AutoSize = true;
             this.CinemaNameLB.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.CinemaNameLB.Location = new System.Drawing.Point(12, 44);
+            this.CinemaNameLB.Location = new System.Drawing.Point(10, 33);
             this.CinemaNameLB.Name = "CinemaNameLB";
-            this.CinemaNameLB.Size = new System.Drawing.Size(295, 35);
+            this.CinemaNameLB.Size = new System.Drawing.Size(236, 28);
             this.CinemaNameLB.TabIndex = 6;
             this.CinemaNameLB.Text = "Welcome to our Cinema!";
             // 
-            // button2
+            // AddHallBtn
             // 
-            this.button2.Location = new System.Drawing.Point(407, 383);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 39);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Add A Hall";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddHallBtn.Location = new System.Drawing.Point(356, 287);
+            this.AddHallBtn.Name = "AddHallBtn";
+            this.AddHallBtn.Size = new System.Drawing.Size(158, 29);
+            this.AddHallBtn.TabIndex = 7;
+            this.AddHallBtn.Text = "Add A Hall";
+            this.AddHallBtn.UseVisualStyleBackColor = true;
+            this.AddHallBtn.Click += new System.EventHandler(this.AddHallBtn_Click);
             // 
             // FilterCB
             // 
             this.FilterCB.FormattingEnabled = true;
-            this.FilterCB.Location = new System.Drawing.Point(315, 56);
-            this.FilterCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FilterCB.Location = new System.Drawing.Point(276, 42);
             this.FilterCB.Name = "FilterCB";
-            this.FilterCB.Size = new System.Drawing.Size(111, 28);
+            this.FilterCB.Size = new System.Drawing.Size(98, 23);
             this.FilterCB.TabIndex = 5;
             this.FilterCB.SelectionChangeCommitted += new System.EventHandler(this.FilterChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(315, 32);
+            this.label2.Location = new System.Drawing.Point(276, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.Size = new System.Drawing.Size(83, 15);
             this.label2.TabIndex = 8;
             this.label2.Text = "Filter by Genre";
             // 
             // SortCB
             // 
             this.SortCB.FormattingEnabled = true;
-            this.SortCB.Location = new System.Drawing.Point(489, 56);
-            this.SortCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SortCB.Location = new System.Drawing.Point(428, 42);
             this.SortCB.Name = "SortCB";
-            this.SortCB.Size = new System.Drawing.Size(98, 28);
+            this.SortCB.Size = new System.Drawing.Size(86, 23);
             this.SortCB.TabIndex = 9;
             this.SortCB.SelectedIndexChanged += new System.EventHandler(this.SortCB_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(489, 32);
+            this.label3.Location = new System.Drawing.Point(428, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Sort by";
             // 
@@ -186,10 +180,9 @@ namespace KinoRezervacija
             this.AscendCheckB.AutoSize = true;
             this.AscendCheckB.Checked = true;
             this.AscendCheckB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AscendCheckB.Location = new System.Drawing.Point(448, 62);
-            this.AscendCheckB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AscendCheckB.Location = new System.Drawing.Point(392, 46);
             this.AscendCheckB.Name = "AscendCheckB";
-            this.AscendCheckB.Size = new System.Drawing.Size(18, 17);
+            this.AscendCheckB.Size = new System.Drawing.Size(15, 14);
             this.AscendCheckB.TabIndex = 11;
             this.AscendCheckB.UseVisualStyleBackColor = true;
             this.AscendCheckB.CheckStateChanged += new System.EventHandler(this.AscendCheckB_CheckStateChanged);
@@ -197,47 +190,30 @@ namespace KinoRezervacija
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(426, 32);
+            this.label4.Location = new System.Drawing.Point(373, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
+            this.label4.Size = new System.Drawing.Size(46, 15);
             this.label4.TabIndex = 12;
             this.label4.Text = "Ascend";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(727, 336);
+            this.button1.Location = new System.Drawing.Point(636, 252);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 39);
+            this.button1.Size = new System.Drawing.Size(117, 29);
             this.button1.TabIndex = 13;
             this.button1.Text = "Food and Drinks";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // ShowBillBtn
-            // 
-            this.ShowBillBtn.Location = new System.Drawing.Point(520, 363);
-            this.ShowBillBtn.Name = "ShowBillBtn";
-            this.ShowBillBtn.Size = new System.Drawing.Size(268, 29);
-            this.ShowBillBtn.TabIndex = 14;
-            this.ShowBillBtn.Text = "Show Bill";
-            this.ShowBillBtn.UseVisualStyleBackColor = true;
-            this.ShowBillBtn.Click += new System.EventHandler(this.ShowBillBtn_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(258, 363);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 29);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Remove Movie";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // btnRemove
             // 
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(211, 383);
+            this.btnRemove.Location = new System.Drawing.Point(185, 287);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(180, 37);
+            this.btnRemove.Size = new System.Drawing.Size(158, 28);
             this.btnRemove.TabIndex = 14;
             this.btnRemove.Text = "Remove Selected Movie";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -253,7 +229,8 @@ namespace KinoRezervacija
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(870, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(761, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -271,7 +248,7 @@ namespace KinoRezervacija
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // newToolStripMenuItem
@@ -280,7 +257,7 @@ namespace KinoRezervacija
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.newToolStripMenuItem.Text = "&New";
             // 
             // openToolStripMenuItem
@@ -289,14 +266,14 @@ namespace KinoRezervacija
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(145, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -304,20 +281,20 @@ namespace KinoRezervacija
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -325,7 +302,7 @@ namespace KinoRezervacija
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -333,18 +310,18 @@ namespace KinoRezervacija
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // editToolStripMenuItem
@@ -359,27 +336,27 @@ namespace KinoRezervacija
             this.toolStripSeparator4,
             this.selectAllToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
             // 
             // cutToolStripMenuItem
             // 
@@ -387,7 +364,7 @@ namespace KinoRezervacija
             this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.cutToolStripMenuItem.Text = "Cu&t";
             // 
             // copyToolStripMenuItem
@@ -396,7 +373,7 @@ namespace KinoRezervacija
             this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.copyToolStripMenuItem.Text = "&Copy";
             // 
             // pasteToolStripMenuItem
@@ -405,18 +382,18 @@ namespace KinoRezervacija
             this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.pasteToolStripMenuItem.Text = "&Paste";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
@@ -425,19 +402,19 @@ namespace KinoRezervacija
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
@@ -449,63 +426,63 @@ namespace KinoRezervacija
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(636, 31);
+            this.label1.Location = new System.Drawing.Point(556, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 20);
+            this.label1.Size = new System.Drawing.Size(143, 15);
             this.label1.TabIndex = 16;
             this.label1.Text = "Details for Selected Movie";
             // 
-            // label5
+            // ShowBillBtn
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(636, 392);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 20);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "tuka kopceto so fali za bill";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.ShowBillBtn.Location = new System.Drawing.Point(520, 286);
+            this.ShowBillBtn.Name = "ShowBillBtn";
+            this.ShowBillBtn.Size = new System.Drawing.Size(233, 30);
+            this.ShowBillBtn.TabIndex = 17;
+            this.ShowBillBtn.Text = "Bill";
+            this.ShowBillBtn.UseVisualStyleBackColor = true;
+            this.ShowBillBtn.Click += new System.EventHandler(this.ShowBillBtn_Click);
             // 
             // TheatherForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 437);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(761, 328);
+            this.Controls.Add(this.ShowBillBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.button1);
@@ -514,7 +491,7 @@ namespace KinoRezervacija
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SortCB);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.AddHallBtn);
             this.Controls.Add(this.CinemaNameLB);
             this.Controls.Add(this.FilterCB);
             this.Controls.Add(this.MovieDetailsRTX);
@@ -523,7 +500,6 @@ namespace KinoRezervacija
             this.Controls.Add(this.addMovieBtn);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TheatherForm";
             this.Text = "W";
             this.menuStrip1.ResumeLayout(false);
@@ -540,7 +516,7 @@ namespace KinoRezervacija
         private System.Windows.Forms.Button BuyTicketBtn;
         private System.Windows.Forms.RichTextBox MovieDetailsRTX;
         private System.Windows.Forms.Label CinemaNameLB;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddHallBtn;
         private System.Windows.Forms.ComboBox FilterCB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox SortCB;
@@ -550,8 +526,6 @@ namespace KinoRezervacija
         private System.Windows.Forms.CheckBox AscendCheckB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button ShowBillBtn;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -584,7 +558,7 @@ namespace KinoRezervacija
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button ShowBillBtn;
     }
 }
 

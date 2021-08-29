@@ -13,23 +13,41 @@ namespace KinoRezervacija
     
     public partial class AddMovie : Form
     {
-        public Movie movie { get; set; }
+        public Movie NewMovie { get; set; }
         public Hall SelectedHall { get; set; }
-        public AddMovie(BindingList<Hall> halls)
+        public List<Movie> AlreadyCreatedMovies { get; set; }
+        public AddMovie(BindingList<Hall> halls, List<Movie>movies)
         {
             InitializeComponent();
             listHalls.DataSource = halls.Where(x => x.CurrentMoviePlaying == null).ToArray();
+            
             var GenreEnums = Enum.GetNames(typeof(Genre)).ToList();
             listGenre.DataSource = GenreEnums;
             listHalls.DisplayMember = "HallName";
+
+            AlreadyCreatedMovies = movies;
+            CreatedMoviesBeforeCB.DataSource = AlreadyCreatedMovies;
+            CreatedMoviesBeforeCB.DisplayMember = "FullTitle";
+            CreatedMoviesBeforeCB.SelectedIndex = -1;
         }
 
         private void btnAddMovie_Click(object sender, EventArgs e)
         {
-            string filter = (string)listGenre.SelectedItem;
-            Genre genre = (Genre)Enum.Parse(typeof(Genre), filter);
-            movie = new Movie(tbName.Text, tbRegisseur.Text, Convert.ToInt32(numPrice.Value), genre, Convert.ToInt32(listHalls.SelectedValue.ToString().Split(" ")[1]));
             SelectedHall = (Hall)listHalls.SelectedItem;
+
+            if (CreatedMoviesBeforeCB.SelectedItem == null)
+            {
+                Genre selectedGenre = (Genre)Enum.Parse(typeof(Genre), (string)listGenre.SelectedItem);
+                NewMovie = new Movie(tbName.Text, tbRegisseur.Text, Convert.ToInt32(numPrice.Value), selectedGenre);
+                AlreadyCreatedMovies.Add(NewMovie);
+            }
+            else
+            {
+                NewMovie = (Movie)CreatedMoviesBeforeCB.SelectedItem;
+            }
+            
+            SelectedHall.ChangeMoviePlaying(NewMovie);
+
             DialogResult = DialogResult.OK;
         }
 

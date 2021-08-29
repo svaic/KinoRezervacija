@@ -18,9 +18,9 @@ namespace KinoRezervacija
             get { return "Hall " + HallNumber; }
         }
         
-        public Hall(int HallName,Movie currentMoviePlaying , int Size)
+        public Hall(int HallNumber,Movie currentMoviePlaying , int Size)
         {
-            this.HallNumber = HallName;
+            this.HallNumber = HallNumber;
             this.CurrentMoviePlaying = currentMoviePlaying;
             this.BookedSeats = new bool[Size];
             this.Size = Size;
@@ -44,6 +44,11 @@ namespace KinoRezervacija
         public void ChangeMoviePlaying(Movie movie)
         {
             CurrentMoviePlaying = movie;
+        }
+
+        public void RemoveMoviePlaying()
+        {
+            CurrentMoviePlaying = null;
         }
 
         public bool HasMoviePlaying()
