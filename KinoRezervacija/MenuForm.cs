@@ -15,7 +15,7 @@ namespace KinoRezervacija
     {
         static IExtra[] Foods = new Food[] { new Food("Popcorn", 200), new Food("HotDog", 150), new Food("Nacho", 200) };
         static IExtra[] FoodAddition = new Food[] { new Food("Ketchup", 30), new Food("Mayo", 150), new Food("Sauce", 200) };
-        static IExtra[] Drinks = new Drink[] { new Drink("CocaCola", 50), new Drink("Sprite", 40), new Drink("Schweppes", 50) };
+        static IExtra[] Drinks = new Food[] { new Food("CocaCola", 50), new Food("Sprite", 40), new Food("Schweppes", 50) };
         static IExtra[] DrinkAddition = new Food[] { new Food("Ice", 10), new Food("Extra Cold", 15) };
 
         
@@ -27,10 +27,6 @@ namespace KinoRezervacija
             InitializeComponent();
 
             this.Menus = new List<Menu>();
-
-            IExtra Popcorn = new Food("Popcorn",50);
-            IExtra Ketchup = new FoodAddition("Ketchup",10, Popcorn);
-            IExtra Senf = new FoodAddition("Senf",15, Ketchup);
 
             MenuCB.DataSource = new Menu[] { new DefaultMenu(), new LoveMenu() , new NoMenu() };
             FoodCB.DataSource = Foods;
@@ -57,7 +53,6 @@ namespace KinoRezervacija
         {
             Type objectType = MenuCB.SelectedItem.GetType();
             CurrentMenu = (Menu)Activator.CreateInstance(objectType);
-            //CurrentMenu = (Menu)((ComboBox)sender).SelectedItem;
 
             SelectedMenuTB.Text += CurrentMenu.GetType().Name + "\n";
 
@@ -73,7 +68,6 @@ namespace KinoRezervacija
 
             if (!CurrentMenu.CanBeFull || CurrentMenu.IsFull())
             {
-                //MoveMenuToBill();
                 MoveToBillBtn.Enabled = true;
             }
             else MoveToBillBtn.Enabled = false;

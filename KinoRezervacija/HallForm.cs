@@ -31,42 +31,6 @@ namespace KinoRezervacija
 
         private void LoadSeats()
         {
-
-            //int x = 0;
-            //int y = 0;
-            //int i = 0;
-            //int j = 0;
-
-
-            //for (int ctr = 0; ctr < CurrHall.Size; ctr++)
-            //{
-            //    var pictureBox1 = new PictureBox();
-            //    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            //    pictureBox1.Image = Properties.Resources.HallSeat;
-            //    pictureBox1.MouseEnter += PictureBox_MouseEnter;
-            //    pictureBox1.MouseLeave += PictureBox_MouseLeave;
-            //    pictureBox1.MouseClick += PictureBox_Click;
-
-            //    int Widthlength = pictureBox1.Width;
-            //    int Heightlength = pictureBox1.Height;
-
-            //    if (x + Widthlength > panel1.Width)
-            //    {
-            //        i = 0;
-            //        j++;
-            //    }
-            //    x = i * Widthlength;
-            //    y = j * (Heightlength + 10);
-            //    i++;
-
-            //    pictureBox1.Location = new Point(x, y);
-            //    pictureBox1.Tag = ctr;
-
-            //    if (CurrHall.BookedSeats[ctr])
-            //        pictureBox1.BackColor = Color.Gray;
-
-            //    panel1.Controls.Add(pictureBox1);
-            //}
             for (int i=0;i< CurrHall.Size;i++)
             {
                 var pictureBox1 = new PictureBox();
@@ -141,6 +105,7 @@ namespace KinoRezervacija
 
             SelectedSeats.Clear();
             RefreshPrice();
+            this.Close();
         }
 
         private void RefreshPrice()

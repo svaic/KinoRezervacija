@@ -60,26 +60,19 @@ namespace KinoRezervacija
         public void AddMovieToHall(Movie movie,int HallNumber)
         {
             _halls[HallNumber-1].CurrentMoviePlaying = movie;
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    if (i + 1 == movie.HallNumber)
-            //    {
-            //        _halls.ElementAt(i).CurrentMoviePlaying = movie;
-            //        break;
-            //    }
-            //}
         }
 
         public void RemoveMovie(int hallNumber)
         {
-            //Movies.Remove(_halls.ElementAt(hallNumber - 1).CurrentMoviePlaying);
             _halls.ElementAt(hallNumber - 1).CurrentMoviePlaying = null;
         }
         public void CompareBy(string Type, bool Ascending)
         {
-            //Halls = new BindingList<Hall> (Halls.OrderBy(x=>x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying).ToList());
             if (Ascending)
-                Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenBy(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ThenBy(x => x.HallNumber).ToList());
+                Halls = new BindingList<Hall>(Halls
+                    .OrderBy(x => x.CurrentMoviePlaying == null)
+                    .ThenBy(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator)))
+                    .ThenBy(x => x.HallNumber).ToList());
             else
                 Halls = new BindingList<Hall>(Halls.OrderBy(x => x.CurrentMoviePlaying == null).ThenByDescending(x => x.CurrentMoviePlaying, new MovieComparator(Movie.SortType.GetValueOrDefault(Type, Movie.DefaultComparator))).ThenBy(x => x.HallNumber).ToList());
         }

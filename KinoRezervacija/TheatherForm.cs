@@ -11,11 +11,13 @@ namespace KinoRezervacija
     
     public partial class TheatherForm : Form
     {
-        Theater theater = new Theater("Cineplexx");
+        Theater theater;
         Bill bill;
         public TheatherForm()
         {
             InitializeComponent();
+
+            theater = new Theater("Cineplexx");
             CinemaNameLB.Text = theater.Name;
 
             MovieLB.DataSource = theater.Halls;
@@ -40,7 +42,6 @@ namespace KinoRezervacija
         private void RefreshDetails()
         {
             Hall selectedHall = (Hall)MovieLB.SelectedItem;
-            //if (selectedHall == null) return;
 
             MovieDetailsRTX.Text = selectedHall.getFullDetails();
 
@@ -55,9 +56,6 @@ namespace KinoRezervacija
         {
             Hall selectedHall = (Hall)MovieLB.SelectedItem;
             if (!selectedHall.HasMoviePlaying()) return;
-            
-            //selectedHall.BookSeat();
-            //RefreshDetails();
             
             HallForm hallForm = new HallForm(selectedHall);
             hallForm.FormClosed += HallForm_Closed;
@@ -77,11 +75,9 @@ namespace KinoRezervacija
             DialogResult result = form.ShowDialog();
             if(result == DialogResult.OK)
             {
-                //theater.Movies.Add(form.movie);
-                //theater.AddMovieToHall(form.NewMovie,form.SelectedHall.HallNumber);
-
+                RefreshListBox();
             }
-            RefreshListBox();
+
         }
 
         private void SortCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,13 +88,8 @@ namespace KinoRezervacija
         private void RefreshListBox()
         {
             string type = (string)SortCB.SelectedItem;
-            //int selectedIndex = MovieLB.SelectedIndex;
-
             theater.CompareBy(type,AscendCheckB.Checked);
-            //theater.Halls.ResetBindings();
             MovieLB.DataSource = theater.Halls;
-
-            //MovieLB.SelectedIndex = selectedIndex;
         }
 
         private void AscendCheckB_CheckStateChanged(object sender, EventArgs e)
@@ -146,7 +137,6 @@ namespace KinoRezervacija
             DialogResult result = MessageBox.Show(text, "Remove Movie?", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {
-                //theater.RemoveMovie(Convert.ToInt32(MovieLB.SelectedItem.ToString().Split()[1]));
                 selectedHall.RemoveMoviePlaying();
             }
             RefreshListBox();
@@ -201,7 +191,5 @@ namespace KinoRezervacija
             }
             RefreshListBox();
         }
-
-
     }
 }

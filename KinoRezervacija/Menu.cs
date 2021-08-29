@@ -65,93 +65,6 @@ namespace KinoRezervacija
         }
     }
 
-    interface IExtra
-    {
-        public string Name { get; set; }
-        public int Price { get; set; }
-
-        public string Description
-        {
-            get { return Name + " - " + Price; }
-        }
-
-    }
-    abstract class Addition : IExtra
-    {
-        private string _name;
-        private int _price;
-
-        protected Addition(string name, int price)
-        {
-            Name = name;
-            Price = price;
-        }
-
-        public string Name
-        {
-            get { return FoodDrink.Name + ", " + _name; }
-            set { _name = value; }
-        }
-
-        public int Price
-        {
-            get { return _price + FoodDrink.Price; }
-            set { _price = value; }
-        }
-
-        public IExtra FoodDrink { get; set; }
-    }
-
-    class Food : IExtra
-    {
-        public Food(string name, int price)
-        {
-            Name = name;
-            Price = price;
-        }
-
-        public string Name { get; set; }
-        public int Price { get; set; }
-
-        public override string ToString()
-        {
-            return Name + " - " + Price;
-        }
-    }
-
-    class FoodAddition : Addition
-    {
-        public FoodAddition(string name, int price, IExtra food) : base(name, price)
-        {
-            FoodDrink = food;
-        }
-    }
-
-    class Drink : IExtra
-    {
-        public Drink(string name, int price)
-        {
-            Name = name;
-            Price = price;
-        }
-
-        public string Name { get; set; }
-        public int Price { get; set; }
-
-        public override string ToString()
-        {
-            return Name + " - " + Price;
-        }
-    } 
-
-    class DrinkAddition : Addition
-    {
-        public DrinkAddition(string name, int price, IExtra drink) : base(name,price)
-        {
-            FoodDrink = drink;
-        }
-    }
-
     class DefaultMenu : Menu
     {
         public DefaultMenu()
@@ -230,6 +143,62 @@ namespace KinoRezervacija
         public override string ToString()
         {
             return Movie.FullTitle + " | " + Hall.HallName + " Seat:" + Seat + " Price:" + Movie.Price;
+        }
+    }
+
+    interface IExtra
+    {
+        public string Name { get; set; }
+        public int Price { get; set; }
+
+        public string Description
+        {
+            get { return Name + " - " + Price; }
+        }
+
+    }
+
+    class Food : IExtra
+    {
+        public Food(string name, int price)
+        {
+            Name = name;
+            Price = price;
+        }
+
+        public string Name { get; set; }
+        public int Price { get; set; }
+
+        public override string ToString()
+        {
+            return Name + " - " + Price;
+        }
+    }
+
+    class FoodAddition : IExtra
+    {
+        private string _name;
+        private int _price;
+
+        public IExtra FoodDrink { get; set; }
+
+        public FoodAddition(string name, int price, IExtra food)
+        {
+            Name = name;
+            Price = price;
+            FoodDrink = food;
+        }
+
+        public string Name
+        {
+            get { return FoodDrink.Name + ", " + _name; }
+            set { _name = value; }
+        }
+
+        public int Price
+        {
+            get { return _price + FoodDrink.Price; }
+            set { _price = value; }
         }
     }
 
