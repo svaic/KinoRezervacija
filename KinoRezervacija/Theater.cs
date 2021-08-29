@@ -58,6 +58,7 @@ namespace KinoRezervacija
                     hallType = HallType.Small;
                 else if (i < 6)
                     hallType = HallType.Medium;
+                else hallType = HallType.Large;
                 BuildHall(i+1, hallType);
                 //if (BestMovies.Count > i) BuildHall(i + 1, BestMovies[i], hallType);
                 //else BuildHall(i, null, hallType);
@@ -68,21 +69,22 @@ namespace KinoRezervacija
         private void BuildHall(int number, HallType hallType)
         {
             if (hallType == HallType.Small) _halls.Add(new Hall(number, null, 20));
-            if (hallType == HallType.Medium) _halls.Add(new Hall(number, null, 35));
+            if (hallType == HallType.Medium) _halls.Add(new Hall(number, null, 30));
             if (hallType == HallType.Large) _halls.Add(new Hall(number, null, 50));
             Halls = _halls;
         }
 
-        public void AddMovieToHall(Movie movie)
+        public void AddMovieToHall(Movie movie,int HallNumber)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                if (i + 1 == movie.HallNumber)
-                {
-                    _halls.ElementAt(i).CurrentMoviePlaying = movie;
-                    break;
-                }
-            }
+            _halls[HallNumber-1].CurrentMoviePlaying = movie;
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    if (i + 1 == movie.HallNumber)
+            //    {
+            //        _halls.ElementAt(i).CurrentMoviePlaying = movie;
+            //        break;
+            //    }
+            //}
         }
 
         //private void BuildHall(int number, Movie moviePlaying, HallType hallType)

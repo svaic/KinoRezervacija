@@ -29,7 +29,7 @@ namespace KinoRezervacija
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.SeatsFlowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.HallNameLB = new System.Windows.Forms.Label();
             this.MovieTitleLB = new System.Windows.Forms.Label();
             this.PriceLB = new System.Windows.Forms.Label();
@@ -38,15 +38,12 @@ namespace KinoRezervacija
             this.GenreLB = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // panel1
+            // flowLayoutPanel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(0, 90);
-            this.panel1.Margin = new System.Windows.Forms.Padding(20);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(20);
-            this.panel1.Size = new System.Drawing.Size(977, 325);
-            this.panel1.TabIndex = 0;
+            this.SeatsFlowLayout.Location = new System.Drawing.Point(0, 88);
+            this.SeatsFlowLayout.Name = "flowLayoutPanel1";
+            this.SeatsFlowLayout.Size = new System.Drawing.Size(1070, 327);
+            this.SeatsFlowLayout.TabIndex = 0;
             // 
             // HallNameLB
             // 
@@ -54,7 +51,7 @@ namespace KinoRezervacija
             this.HallNameLB.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.HallNameLB.Location = new System.Drawing.Point(12, 9);
             this.HallNameLB.Name = "HallNameLB";
-            this.HallNameLB.Size = new System.Drawing.Size(953, 45);
+            this.HallNameLB.Size = new System.Drawing.Size(1046, 45);
             this.HallNameLB.TabIndex = 1;
             this.HallNameLB.Text = "Hall";
             this.HallNameLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -62,9 +59,9 @@ namespace KinoRezervacija
             // MovieTitleLB
             // 
             this.MovieTitleLB.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MovieTitleLB.Location = new System.Drawing.Point(178, 54);
+            this.MovieTitleLB.Location = new System.Drawing.Point(0, 54);
             this.MovieTitleLB.Name = "MovieTitleLB";
-            this.MovieTitleLB.Size = new System.Drawing.Size(621, 31);
+            this.MovieTitleLB.Size = new System.Drawing.Size(1070, 31);
             this.MovieTitleLB.TabIndex = 2;
             this.MovieTitleLB.Text = "Movie Title";
             this.MovieTitleLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,14 +71,14 @@ namespace KinoRezervacija
             this.PriceLB.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PriceLB.Location = new System.Drawing.Point(0, 418);
             this.PriceLB.Name = "PriceLB";
-            this.PriceLB.Size = new System.Drawing.Size(799, 48);
+            this.PriceLB.Size = new System.Drawing.Size(1070, 48);
             this.PriceLB.TabIndex = 3;
             this.PriceLB.Text = "Count: 0 To pay: 0 ден";
             this.PriceLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BuyBtn
             // 
-            this.BuyBtn.Location = new System.Drawing.Point(805, 418);
+            this.BuyBtn.Location = new System.Drawing.Point(898, 418);
             this.BuyBtn.Name = "BuyBtn";
             this.BuyBtn.Size = new System.Drawing.Size(172, 48);
             this.BuyBtn.TabIndex = 4;
@@ -92,7 +89,7 @@ namespace KinoRezervacija
             // SinglePriceLB
             // 
             this.SinglePriceLB.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SinglePriceLB.Location = new System.Drawing.Point(805, 54);
+            this.SinglePriceLB.Location = new System.Drawing.Point(898, 54);
             this.SinglePriceLB.Name = "SinglePriceLB";
             this.SinglePriceLB.Size = new System.Drawing.Size(172, 31);
             this.SinglePriceLB.TabIndex = 5;
@@ -112,14 +109,14 @@ namespace KinoRezervacija
             // HallForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(977, 464);
+            this.ClientSize = new System.Drawing.Size(1070, 464);
+            this.Controls.Add(this.SeatsFlowLayout);
             this.Controls.Add(this.GenreLB);
             this.Controls.Add(this.SinglePriceLB);
             this.Controls.Add(this.BuyBtn);
             this.Controls.Add(this.PriceLB);
             this.Controls.Add(this.MovieTitleLB);
             this.Controls.Add(this.HallNameLB);
-            this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "HallForm";
@@ -130,13 +127,12 @@ namespace KinoRezervacija
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label HallNameLB;
         private System.Windows.Forms.Label MovieTitleLB;
         private System.Windows.Forms.Label PriceLB;
         private System.Windows.Forms.Button BuyBtn;
         private System.Windows.Forms.Label SinglePriceLB;
         private System.Windows.Forms.Label GenreLB;
+        private System.Windows.Forms.FlowLayoutPanel SeatsFlowLayout;
     }
 }

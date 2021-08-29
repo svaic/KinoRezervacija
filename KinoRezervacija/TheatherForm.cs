@@ -72,7 +72,7 @@ namespace KinoRezervacija
             if(result == DialogResult.OK)
             {
                 theater.Movies.Add(form.movie);
-                theater.AddMovieToHall(form.movie);
+                theater.AddMovieToHall(form.movie,form.SelectedHall.HallNumber);
                 RefreshListBox();
             }
         }
