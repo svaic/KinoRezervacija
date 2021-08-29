@@ -127,6 +127,19 @@ Movie.Comparator.CompareByName; //пример за користење на ко
             { "Price", Comparator.CompareByPrice },
             { "Regisseur", Comparator.CompareByRegisseur }
         };
+
+```
+
+Жанрот на филмот се претставува преку енум
+```
+    public enum Genre
+    {
+        Action,
+        Comedy,
+        Drama,
+        Documentary,
+        Fantasy
+    }
 ```
 Класата ```class MovieComparator : IComparer<Movie>``` е потребна за компараторите да се претворат во IComparer и да може да се употребат во c# linq
 ```
